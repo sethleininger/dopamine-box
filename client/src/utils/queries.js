@@ -5,5 +5,16 @@ export const GET_ME = gql`
         _id
         username
         email
+        savedGoals {
+            _id
+            tasks {
+                _id
+                name
+                completed
+            }
+            startDate
+            endDate
+            streak
+          }
     }
 `;
