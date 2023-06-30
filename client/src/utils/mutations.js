@@ -25,17 +25,33 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_GOAL = gql`
-    mutation saveGoal() {
-        saveGoal() {
+    mutation saveGoal($input: SaveGoalInput!) {
+        saveGoal(input: $input) {
+          _id
+          username
+          savedGoals {
+            _id
+            tasks
+            startDate
+            endDate
+            streak
+          }
 
         }
     }
     `;
 
 export const REMOVE_GOAL = gql`
-    mutation removeGoal() {
-        removeGoal() {
-
+    mutation removeGoal($_id: ID!) {
+        removeGoal(_id: $_id) {
+          _id
+          username
+          savedGoals {
+            _id
+            tasks
+            startDate
+            streak
+          }
         }
     }
 `;
