@@ -5,7 +5,7 @@ export const GET_ME = gql`
         _id
         username
         email
-        savedGoals {
+        goals {
             _id
             tasks {
                 _id
