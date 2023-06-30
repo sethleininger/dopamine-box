@@ -11,7 +11,8 @@ import { setContext } from '@apollo/client/link/context';
 // import pages
 import Welcome from './pages/Welcome';
 import Calendar from './pages/Calendar';
-import Login from './pages/Login';
+import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
 import CreateGoal from './pages/CreateGoal';
 
 const httpLink = createHttpLink({
@@ -39,7 +40,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Welcome />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
           <Route path="/createGoal" element={<CreateGoal />} />
           <Route path="/calendar" element={<Calendar />} />
         </Routes>
