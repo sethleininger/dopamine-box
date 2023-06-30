@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+  scalar Date
+
   type User {
     _id: ID!
     username: String!
@@ -11,10 +13,15 @@ const typeDefs = gql`
 
   type Goal {
     _id: ID!
-    tasks: [Task]!
+    tasks: [Task]
     startDate: Date!
     endDate: Date
     streak: Int!
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Task {
@@ -23,11 +30,17 @@ const typeDefs = gql`
     completed: Boolean!
   }
 
+  input TaskInput {
+    _id: ID!
+    name: String!
+    completed: Boolean!
+  }
+
   input SaveGoalInput {
-    tasks: [Task]!
+    _id: ID!
+    tasks: [TaskInput]!
     startDate: Date!
     endDate: Date
-    streak: Int!
   }
 
   type Query {
@@ -38,7 +51,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveGoal(input: SaveGoalInput!): User
-    removeBook(_id: ID!): User
+    removeGoal(_id: ID!): User
   }
 `;
 
