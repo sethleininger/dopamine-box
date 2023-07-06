@@ -13,6 +13,7 @@ const typeDefs = gql`
 
   type Goal {
     _id: ID!
+    name: String!
     tasks: [Task]
     startDate: Date!
     endDate: Date
