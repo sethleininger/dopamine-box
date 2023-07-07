@@ -29,9 +29,14 @@ export const SAVE_GOAL = gql`
         saveGoal(input: $input) {
           _id
           username
-          savedGoals {
+          goals {
             _id
-            tasks
+            name
+            tasks {
+              _id
+              name
+              completed
+            }
             startDate
             endDate
             streak
@@ -46,9 +51,14 @@ export const REMOVE_GOAL = gql`
         removeGoal(_id: $_id) {
           _id
           username
-          savedGoals {
+          goals {
             _id
-            tasks
+            name
+            tasks {
+              _id
+              name
+              completed
+            }
             startDate
             streak
           }
