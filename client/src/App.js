@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -18,7 +18,6 @@ import CreateGoal from "./pages/CreateGoal";
 // import SignupForm from "./components/SignupForm";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
