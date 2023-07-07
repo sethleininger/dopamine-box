@@ -1,9 +1,7 @@
 import React from "react";
 
 //importing calendar component
-import { Calendar, dayjsLocalizer } from 'react-big-calendar'
-import dayjs from 'dayjs'
-const localizer = dayjsLocalizer(dayjs)
+import MyCalendar from "../components/CalendarComponent/CalendarComponent";
 
 // import styling 
 
@@ -25,7 +23,9 @@ export default function CalendarPage() {
       <div className="streak">
         {/* streak info here */}
       </div>
-      <Calendar />
+      <div>
+        <MyCalendar />
+      </div>
     </main>
   )
 }
