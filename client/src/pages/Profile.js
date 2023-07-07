@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Header from "../components/header/Header";
 // import Profile.css
 
 const Profile = ({ goal, tasks, username, streak }) => {
@@ -13,7 +13,7 @@ const Profile = ({ goal, tasks, username, streak }) => {
   };
   return (
     <div className="page_wrapper">
-      {/* <Header/> */}
+      <Header />
       <div className="content-wrapper">
         <h2>Welcome {username}!</h2>
         <h3>You're {streak} days into building your habit goal!</h3>
