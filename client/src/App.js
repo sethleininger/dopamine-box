@@ -10,7 +10,8 @@ import { setContext } from '@apollo/client/link/context';
 
 // import pages
 import Welcome from './pages/Welcome';
-import Calendar from './pages/Calendar';
+import CalendarPage from './pages/Calendar';
+import Profile from './pages/Profile';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import CreateGoal from './pages/CreateGoal';
@@ -35,17 +36,36 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('Welcome');
+  
+  const renderPage = () => {
+    if (currentPage === 'Welcome') {
+      return <Welcome />;
+    }
+    if (currentPage === 'Profile') {
+      return <Profile />;
+    } 
+    if (currentPage === 'CreateGoal') {
+      return <CreateGoal />;
+    }
+    if (currentPage === 'CalendarPage') {
+      return <CalendarPage />;
+    }
+  };
+
+  const handlePageChange = (page) => setCurrentPage(page);
+
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/signup" element={<SignupForm />} />
-          <Route path="/createGoal" element={<CreateGoal />} />
-          <Route path="/calendar" element={<Calendar />} />
-        </Routes>
-      </Router>
+      <div>
+        <Header currentPage={currentPage} handlePageChange={handlePageChange}/>
+      </div>
+      <div>
+        {renderPage()}
+      </div>
+      <div>
+        <Footer />
+      </div>
     </ApolloProvider>
   );
 };
