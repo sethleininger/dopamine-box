@@ -1,19 +1,19 @@
 import React from "react";
 import "./header.css";
 
-const Header = ({ nav, direction, handleDisplayChange, ...props }) => (
+const Header = ({ nav, direction, handlePageChange, ...props }) => (
   <header>
     <nav className={["navbar", `navbar--${direction}`].join(" ")}>
-      <a href={"Home"} onClick={() => handleDisplayChange("Home")}>
+      <a href={"#welcome"} onClick={() => handlePageChange("Welcome")}>
         Home
       </a>
-      <a href={"Profile"} onClick={() => handleDisplayChange("Profile")}>
+      <a href={"#profile"} onClick={() => handlePageChange("Profile")}>
         Profile
       </a>
-      <a href={"Calendar"} onClick={() => handleDisplayChange("Calendar")}>
+      <a href={"#calendar"} onClick={() => handlePageChange("Calendar")}>
         Calendar
       </a>
-      <a href={"Goal"} onClick={() => handleDisplayChange("Goal")}>
+      <a href={"#goal"} onClick={() => handlePageChange("Goal")}>
         Goal
       </a>
     </nav>
