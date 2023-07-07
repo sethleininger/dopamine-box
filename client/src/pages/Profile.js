@@ -38,3 +38,5 @@ const Profile = ({ goal, tasks, username, streak }) => {
     </div>
   );
 };
+
+export default Profile;

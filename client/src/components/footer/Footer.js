@@ -1,6 +1,6 @@
 import React from "react";
 import "./footer.css";
-import github from "../../../assets/github-mark.png";
+import github from "../../assets/github-mark.png";
 const Footer = ({ ...props }) => (
   <section className="footer_wrapper">
     <footer>
