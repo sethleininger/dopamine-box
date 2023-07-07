@@ -10,12 +10,12 @@ import { setContext } from "@apollo/client/link/context";
 
 // import pages
 import Welcome from "./pages/Welcome";
-import CalendarPage from "./pages/Calendar";
+// import CalendarPage from "./pages/Calendar";
 import Profile from "./pages/Profile";
 import CreateGoal from "./pages/CreateGoal";
 //import components
-import LoginForm from "./components/LoginForm";
-import SignupForm from "./components/SignupForm";
+// import LoginForm from "./components/LoginForm";
+// import SignupForm from "./components/SignupForm";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
@@ -51,9 +51,9 @@ function App() {
     if (currentPage === "CreateGoal") {
       return <CreateGoal />;
     }
-    if (currentPage === "CalendarPage") {
-      return <CalendarPage />;
-    }
+    // if (currentPage === "CalendarPage") {
+    //   return <CalendarPage />;
+    // }
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
