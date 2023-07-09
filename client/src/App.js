@@ -11,7 +11,7 @@ import { setContext } from "@apollo/client/link/context";
 
 // import pages
 import Welcome from "./pages/Welcome";
-// import CalendarPage from "./pages/Calendar";
+import CalendarPage from "./pages/Calendar";
 import Profile from "./pages/Profile";
 import SaveGoalForm from "./pages/CreateGoal";
 // import Navbar from './components/Navbar';
@@ -55,9 +55,9 @@ function App() {
     if (currentPage === "CreateGoal") {
       return <SaveGoalForm />;
     }
-    // if (currentPage === "CalendarPage") {
-    //   return <CalendarPage />;
-    // }
+    if (currentPage === "CalendarPage") {
+      return <CalendarPage />;
+    }
     if (currentPage === "Login") {
       return <LoginForm />;
     }
