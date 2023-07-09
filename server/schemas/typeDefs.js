@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  scalar Date
+  # scalar Date
 
   type User {
     _id: ID!
@@ -15,8 +15,8 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     tasks: [Task]
-    startDate: Date!
-    endDate: Date
+    startDate: String!
+    endDate: String
     streak: Int!
   }
 
@@ -40,8 +40,8 @@ const typeDefs = gql`
   input SaveGoalInput {
     _id: ID!
     tasks: [TaskInput]!
-    startDate: Date!
-    endDate: Date
+    startDate: String!
+    endDate: String
   }
 
   type Query {
