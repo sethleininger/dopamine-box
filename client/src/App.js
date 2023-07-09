@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import {  Nav, Modal, Tab, Button } from 'react-bootstrap';
 import {
   ApolloClient,
   InMemoryCache,
@@ -12,12 +13,14 @@ import { setContext } from "@apollo/client/link/context";
 import Welcome from "./pages/Welcome";
 // import CalendarPage from "./pages/Calendar";
 import Profile from "./pages/Profile";
-import CreateGoal from "./pages/CreateGoal";
+import SaveGoalForm from "./pages/CreateGoal";
+// import Navbar from './components/Navbar';
 //import components
-// import LoginForm from "./components/LoginForm";
-// import SignupForm from "./components/SignupForm";
+import LoginForm from "./components/LoginForm";
+// import SignUpForm from "./components/SignupForm";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import SignupForm from "./components/SignupForm";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -40,6 +43,8 @@ const client = new ApolloClient({
 function App() {
   const [currentPage, setCurrentPage] = useState("Welcome");
 
+  // const [showModal, setShowModal] = useState(false);
+
   const renderPage = () => {
     if (currentPage === "Welcome") {
       return <Welcome />;
@@ -48,19 +53,26 @@ function App() {
       return <Profile />;
     }
     if (currentPage === "CreateGoal") {
-      return <CreateGoal />;
+      return <SaveGoalForm />;
     }
     // if (currentPage === "CalendarPage") {
     //   return <CalendarPage />;
     // }
+    if (currentPage === "Login") {
+      return <LoginForm />;
+    }
+    if (currentPage === "Signup") {
+      return <SignupForm />;
+    }    
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
 
   return (
     <ApolloProvider client={client}>
+      {/* <Navbar/> */}
       <div>
-        <Header currentPage={currentPage} handlePageChange={handlePageChange} />
+        < Header currentPage={currentPage} handlePageChange={handlePageChange}/>
       </div>
       <div>{renderPage()}</div>
       <div>
