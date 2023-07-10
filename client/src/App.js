@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import {  Nav, Modal, Tab, Button } from 'react-bootstrap';
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,13 +13,16 @@ import Welcome from "./pages/Welcome/Welcome";
 import CalendarPage from "./pages/Calendar";
 import Profile from "./pages/Profile";
 import SaveGoalForm from "./pages/CreateGoal";
-// import Navbar from './components/Navbar';
+
 //import components
-import LoginForm from "./components/LoginForm";
-// import SignUpForm from "./components/SignupForm";
+// import LoginForm from "./components/LoginForm";
+// import SignupForm from "./components/SignupForm";
+
+import AuthForm from "./components/AuthForm";
+
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import SignupForm from "./components/SignupForm";
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -44,8 +45,6 @@ const client = new ApolloClient({
 function App() {
   const [currentPage, setCurrentPage] = useState("Welcome");
 
-  // const [showModal, setShowModal] = useState(false);
-
   const renderPage = () => {
     if (currentPage === "Welcome") {
       return <Welcome />;
@@ -59,11 +58,11 @@ function App() {
     if (currentPage === "CalendarPage") {
       return <CalendarPage />;
     }
-    if (currentPage === "Login") {
-      return <LoginForm />;
-    }
-    if (currentPage === "Signup") {
-      return <SignupForm />;
+    // if (currentPage === "Login") {
+    //   return <LoginForm />;
+    // }
+    if (currentPage === "Authform") {
+      return <AuthForm />;
     }    
   };
 
