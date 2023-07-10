@@ -1,0 +1,30 @@
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.WP-welcome {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  background-color: var(--peach);
+  /* rotate: 60deg; */
+  border-radius: 30%;
+  box-shadow: 0 0 20px 10px var(--gray);
+}
+
+.box {
+  display: flex;
+  
+}
+
+.box img {
+  width: 300px;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import {  Nav, Modal, Tab, Button } from 'react-bootstrap';
 import {
@@ -10,7 +11,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 
 // import pages
-import Welcome from "./pages/Welcome";
+import Welcome from "./pages/Welcome/Welcome";
 import CalendarPage from "./pages/Calendar";
 import Profile from "./pages/Profile";
 import SaveGoalForm from "./pages/CreateGoal";

@@ -3,3 +3,26 @@ font-family: 'Nunito', sans-serif;  (font weight 200, 300, 400)
 font-family: 'Quicksand', sans-serif;  (font weight 300, 500, 600)
 */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&family=Quicksand:wght@300;500;600&display=swap');
+
+@import 'animate.css';
+
+:root {
+  --platinum: #e2e2dfff;
+  --timberwolf: #d2d2cfff;
+  --gray: #bfbfbfff;
+  --champagne-pink: #e2cfc4ff;
+  --peach: #f7c6a3ff;
+  --dutch-white: #faedcbff;
+  --mint-green: #bae3daff;
+  --uranian-blue: #a5dbf2ff;
+  --periwinkle: #d3c0f0ff;
+  --fairy-tale: #f2bddaff;
+  --salmon-pink: #faa5abff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--platinum);
+}
