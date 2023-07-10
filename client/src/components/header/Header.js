@@ -16,9 +16,10 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => (
       <a href={"#creategoal"} onClick={() => handlePageChange("CreateGoal")}>
         Goal
       </a>
-      <a href={'#login'} onClick={() => handlePageChange('Login')}> Login</a>
+      {/* <a href={'#login'} onClick={() => handlePageChange('Login')}> Login</a>
       
-      <a href={'#signup'} onClick={() => handlePageChange('Signup')}> Signup</a>
+      <a href={'#signup'} onClick={() => handlePageChange('Signup')}> Signup</a> */}
+      <a href={'#authform'} onClick={() => handlePageChange('Authform')}>Signup/Login</a>
     </nav>
   </header>
 );
