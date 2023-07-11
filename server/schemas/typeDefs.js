@@ -53,6 +53,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     saveGoal(input: SaveGoalInput!): User
     removeGoal(_id: ID!): User
+    completeTask(goalId: ID!, taskId: ID!, newValue: Boolean!): User
+    # updateStreak(_id: ID!): User
   }
 `;
 

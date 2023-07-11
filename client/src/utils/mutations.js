@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
-    mutation login($email: String!, $password: String!) {
+  mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
       user {
@@ -25,43 +25,62 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_GOAL = gql`
-    mutation saveGoal($input: SaveGoalInput!) {
-        saveGoal(input: $input) {
+  mutation saveGoal($input: SaveGoalInput!) {
+    saveGoal(input: $input) {
+      _id
+      username
+      goals {
+        _id
+        name
+        tasks {
           _id
-          username
-          goals {
-            _id
-            name
-            tasks {
-              _id
-              name
-              completed
-            }
-            startDate
-            endDate
-            streak
-          }
-
+          name
+          completed
         }
+        startDate
+        endDate
+        streak
+      }
     }
-    `;
+  }
+`;
 
 export const REMOVE_GOAL = gql`
-    mutation removeGoal($_id: ID!) {
-        removeGoal(_id: $_id) {
+  mutation removeGoal($_id: ID!) {
+    removeGoal(_id: $_id) {
+      _id
+      username
+      goals {
+        _id
+        name
+        tasks {
           _id
-          username
-          goals {
-            _id
-            name
-            tasks {
-              _id
-              name
-              completed
-            }
-            startDate
-            streak
-          }
+          name
+          completed
         }
+        startDate
+        streak
+      }
     }
+  }
+`;
+
+export const COMPLETE_TASK = gql`
+  mutation completeTask($goalId: ID!, $taskId: ID!, $newValue: Boolean!) {
+    completeTask(goalId: $goalId, taskId: $taskId, newValue: $newValue) {
+      _id
+      username
+      goals {
+        _id
+        name
+        tasks {
+          _id
+          name
+          completed
+        }
+        startDate
+        streak
+      }
+    }
+  }
 `;
