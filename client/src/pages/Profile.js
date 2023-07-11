@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../components/header/Header";
-// import Profile.css
 
 const Profile = ({ goal, tasks, username, streak }) => {
-  const [allChecked, setAllChecked] = useState(false);
-
   const handleCheckboxChange = (index) => {
     const updatedTasks = [...tasks];
     updatedTasks[index].checked = !updatedTasks[index].checked;
-    const allTaskschecked = updatedTasks.every((task) => task.checked);
-    setAllChecked(allTaskschecked);
+    // const allTaskschecked = updatedTasks.every((task) => task.checked);
+    // setAllChecked(allTaskschecked);
   };
+
   return (
     <div className="page_wrapper">
       <Header />
@@ -20,17 +18,16 @@ const Profile = ({ goal, tasks, username, streak }) => {
         <h3>Current Goal: {goal}</h3>
         <div className="task-box">
           {tasks.map(({ name, index, checked }) => (
-            <>
+            <React.Fragment key={index}>
               <label>{name}</label>
               <input
-                key={index}
                 className="task-checkbox"
                 type="checkbox"
                 name={name}
                 checked={checked}
                 onChange={() => handleCheckboxChange(index)}
-              ></input>
-            </>
+              />
+            </React.Fragment>
           ))}
         </div>
         {/* {allChecked && <>effect</>} */}

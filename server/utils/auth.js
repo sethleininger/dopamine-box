@@ -1,6 +1,7 @@
+require('dotenv').config();
 const jwt = require("jsonwebtoken");
-//This should be fixed to accept .env SECRET
-const secret = "process.env.SECRET";
+// FIXED TO ACCEPT DOTENV
+const secret = process.env.SECRET;
 
 const expiration = "2h";
 
