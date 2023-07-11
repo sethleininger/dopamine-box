@@ -24,7 +24,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -63,7 +63,7 @@ function App() {
     // }
     if (currentPage === "Authform") {
       return <AuthForm />;
-    }    
+    }
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
@@ -72,7 +72,7 @@ function App() {
     <ApolloProvider client={client}>
       {/* <Navbar/> */}
       <div>
-        < Header currentPage={currentPage} handlePageChange={handlePageChange}/>
+        <Header currentPage={currentPage} handlePageChange={handlePageChange} />
       </div>
       <div>{renderPage()}</div>
       <div>
