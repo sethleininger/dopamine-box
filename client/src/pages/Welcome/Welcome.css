@@ -9,14 +9,14 @@
 
 .WP-welcome {
   display: flex;
-  position: relative;
-  top: 20%;
+  position: absolute;
+  top: 100px;
   width: 600px;
   height: 600px;
   background-color: var(--peach);
   /* rotate: 60deg; */
   border-radius: 30%;
-  box-shadow: 0 0 20px 10px var(--platinum);
+  box-shadow: 0 0 20px 10px var(--gray);
   animation: zoomInUp 2s;
 }
 
@@ -129,4 +129,83 @@
 }
 .dopaminebox span:nth-of-type(11)  {
   transform: rotate(-55deg);
+}
+
+.discription h2 {
+  font-weight: 200;
+  text-align: center;
+  padding: 20px;
+  padding-top: 40px;
+}
+
+.getStarted h2 {
+  font-weight: 200;
+  text-align: center;
+  padding: 15px;
+}
+
+.discription {
+  position: absolute;
+  top: 700px;
+  left: 100px;
+  width: 300px;
+  height: 300px;
+  background-color: var(--periwinkle);
+  border-radius: 30%;
+  animation: fadeIn 5s;
+  box-shadow: 0 0 10px 5px var(--gray);
+}
+
+.getStarted {
+  position: absolute;
+  top: 700px;
+  right: 100px;
+  width: 200px;
+  height: 200px;
+  background-color: var(--mint-green);
+  border-radius: 30%;
+  animation: fadeIn 6s;
+  box-shadow: 0 0 5px 2px var(--gray);
+}
+
+.star {
+  position: absolute; 
+  display: hidden;
+}
+
+.star img {
+  width: 100px;
+}
+
+.blue {
+  left: 440px;
+  top: 10px;
+  animation: pulse 5s infinite;
+}
+
+.shooting {
+  left: 0;
+  top: 0;
+}
+
+.shine {
+  left: 820px;
+  top: 60px;
+  animation: shakeY 10s infinite;
+}
+
+.orange {
+  left: 0;
+  top: 0;
+}
+
+.yelloworange {
+  left: 0;
+  top: 0;
+}
+
+.green {
+  left: -40px;
+  top: -10px;
+  animation: flash 4s infinite;
 }
