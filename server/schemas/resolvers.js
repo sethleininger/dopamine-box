@@ -56,6 +56,22 @@ const resolvers = {
         );
       }
     },
+    // added by zach for completed goals
+    // completedGoal: async (_parent, { _id }, context) => {
+    //   if (context.user) {
+    //     const user = await User.findById(context.user._id);
+    //     const goal = user.goals.id(_id);
+    //     if (!goal) {
+    //       throw new Error("Goal not found");
+    //     }
+    //     const allTasksCompleted = goal.tasks.every((task) => task.completed);
+    //     if (allTasksCompleted) {
+    //       goal.completed = true;
+    //       await user.save();
+    //     };
+    //     return goal;
+    //   }
+    // },
   },
 };
 
