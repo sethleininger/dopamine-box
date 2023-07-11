@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
-const secret = process.env.SECRET;
+//This should be fixed to accept .env SECRET
+const secret = "process.env.SECRET";
 
 const expiration = "2h";
 
