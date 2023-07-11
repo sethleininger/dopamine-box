@@ -72,21 +72,36 @@ const resolvers = {
         );
       }
     },
+    updateStreak: async (_parent, { goalId }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          {
+            _id: context.user._id,
+            'goals._id': goalId,
+          },
+          { $inc: { 'goals.$[goal].streak': 1 } },
+          {
+            new: true,
+            arrayFilters: [{ 'goal._id': goalId }],
+          }
+        );
+      }
+    },
     // added by zach for completed goals
-    // completedGoal: async (_parent, { _id }, context) => {
-    //   if (context.user) {
-    //     const user = await User.findById(context.user._id);
-    //     const goal = user.goals.id(_id);
-    //     if (!goal) {
-    //       throw new Error("Goal not found");
-    //     }
-    //     const allTasksCompleted = goal.tasks.every((task) => task.completed);
-    //     if (allTasksCompleted) {
-    //       goal.completed = true;
-    //       await user.save();
-    //     };
-    //     return goal;
+    // completedGoal: async (_parent, { userId, _id }, context) => {
+    //   // if (context.user) {
+    //   const user = await User.findById(userId);
+    //   const goal = user.goals.id(_id);
+    //   if (!goal) {
+    //     throw new Error('Goal not found');
     //   }
+    //   const allTasksCompleted = goal.tasks.every((task) => task.completed);
+    //   if (allTasksCompleted) {
+    //     goal.streak++;
+    //     await user.save();
+    //   }
+    //   return goal;
+    //   // }
     // },
   },
 };

@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import Profile.css
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
-import { COMPLETE_TASK } from '../utils/mutations';
+import { COMPLETE_TASK, UPDATE_STREAK } from '../utils/mutations';
+
 function Profile() {
-  // const [allChecked, setAllChecked] = useState(false);
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || {};
-  // console.log(userData);
 
   const [completeTask, { error }] = useMutation(COMPLETE_TASK);
+  const [updateStreak] = useMutation(UPDATE_STREAK);
 
   const handleCheckboxChange = async (goalId, taskId, newValue) => {
-    // console.log(goalId);
-    // console.log(taskId);
-    // console.log(newValue);
-
     try {
       const { data } = await completeTask({
-        variables: { goalId: goalId, taskId: taskId, newValue: newValue },
+        variables: { goalId: goalId, taskId: taskId, newValue: !newValue },
       });
 
-      // console.log(data);
+      const tasks = await data.completeTask.goals[0].tasks;
+      const allTasksChecked = tasks.every((task) => task.completed);
+      if (allTasksChecked) {
+        const { data } = await updateStreak({
+          variables: { goalId: goalId },
+        });
+      }
 
       if (error) {
         throw new Error('something went wrong!');
@@ -29,10 +31,6 @@ function Profile() {
     } catch (e) {
       console.error(e);
     }
-    // const updatedTasks = [...tasks];
-    // updatedTasks[index].checked = !updatedTasks[index].checked;
-    // const allTaskschecked = updatedTasks.every((task) => task.checked);
-    // setAllChecked(allTaskschecked);
   };
 
   if (loading) {
@@ -57,13 +55,12 @@ function Profile() {
                 name={name}
                 checked={completed}
                 onChange={() =>
-                  handleCheckboxChange(userData.goals[0]._id, _id, !completed)
+                  handleCheckboxChange(userData.goals[0]._id, _id, completed)
                 }
               ></input>
             </>
           ))}
         </div>
-        {/* {allChecked && <>effect</>} */}
       </div>
     </div>
   );
