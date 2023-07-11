@@ -1,10 +1,8 @@
 import React from "react";
-
 //importing calendar component
 import MyCalendar from "../components/CalendarComponent/CalendarComponent";
 
 // import styling 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 
@@ -28,4 +26,4 @@ export default function CalendarPage() {
       </div>
     </main>
   )
-}
+};
