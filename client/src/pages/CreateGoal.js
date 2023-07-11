@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 import { useMutation } from "@apollo/client";
 import { SAVE_GOAL } from "../utils/mutations";
 
 const SaveGoalForm = () => {
-  const [addGoal, { error }] = useMutation(SAVE_GOAL);
+  const [ addGoal ] = useMutation(SAVE_GOAL);
 
   const [goalFormData, setGoalFormData] = useState({
     task: ["", "", "", "", ""],
