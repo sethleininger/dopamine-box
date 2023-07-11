@@ -9,22 +9,124 @@
 
 .WP-welcome {
   display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 400px;
-  height: 400px;
+  position: relative;
+  top: 20%;
+  width: 600px;
+  height: 600px;
   background-color: var(--peach);
   /* rotate: 60deg; */
   border-radius: 30%;
-  box-shadow: 0 0 20px 10px var(--gray);
+  box-shadow: 0 0 20px 10px var(--platinum);
+  animation: zoomInUp 2s;
 }
 
 .box {
   display: flex;
-  
+  position: absolute;
+  bottom: 190px;
+  left: 180px;
+  z-index: 0;
 }
 
 .box img {
-  width: 300px;
+  width: 250px;
+}
+
+.to {
+  font-size: 30px;
+  font-weight: 600;
+  position: absolute;
+  top: 400px;
+  left: 285px;
+  z-index: 10;
+}
+
+.welcometo, .dopaminebox {
+  font-size: 60px;
+  font-weight: 600;
+  display: inline-block;
+  position: relative;
+  width: 520px;
+  height:300px;
+  margin: 0 auto;
+}
+
+.welcometo span, .dopaminebox span{
+  position: absolute;
+  top: 50px;
+  left: 300px;
+  width: 70px;
+  height: 300px;
+  margin-left: -35px;
+  line-height: 530px; /* height*2 - font-size */
+  text-align: center;
+  transform-origin: top center;
+  text-shadow: 0 8px #e0bda4;
+}
+
+.welcometo span {
+  line-height: 70px;
+  transform-origin: bottom center;
+}
+
+.dopaminebox {
+  top: 180px;
+  right: 300px;
+  
+}
+
+.welcometo span:nth-of-type(1)  {
+  transform: rotate(-45deg);
+}
+.welcometo  span:nth-of-type(2)  {
+  transform: rotate(-30deg);
+}
+.welcometo  span:nth-of-type(3)  {
+  transform: rotate(-15deg);
+}
+.welcometo  span:nth-of-type(4)  {
+  transform: rotate(0deg);
+}
+.welcometo  span:nth-of-type(5)  {
+  transform: rotate(15deg);
+}
+.welcometo  span:nth-of-type(6)  {
+  transform: rotate(30deg);
+}
+.welcometo  span:nth-of-type(7)  {
+  transform: rotate(45deg);
+}
+
+.dopaminebox span:nth-of-type(1)  {
+  transform: rotate(55deg);
+}
+.dopaminebox span:nth-of-type(2)  {
+  transform: rotate(45deg);
+}
+.dopaminebox span:nth-of-type(3)  {
+  transform: rotate(35deg);
+}
+.dopaminebox span:nth-of-type(4)  {
+  transform: rotate(25deg);
+}
+.dopaminebox span:nth-of-type(5)  {
+  transform: rotate(15deg);
+}
+.dopaminebox span:nth-of-type(6)  {
+  transform: rotate(5deg);
+}
+.dopaminebox span:nth-of-type(7)  {
+  transform: rotate(-5deg);
+}
+.dopaminebox span:nth-of-type(8)  {
+  transform: rotate(-15deg);
+}
+.dopaminebox span:nth-of-type(9)  {
+  transform: rotate(-35deg);
+}
+.dopaminebox span:nth-of-type(10)  {
+  transform: rotate(-45deg);
+}
+.dopaminebox span:nth-of-type(11)  {
+  transform: rotate(-55deg);
 }
