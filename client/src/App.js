@@ -13,12 +13,11 @@ import Welcome from "./pages/Welcome/Welcome";
 import CalendarPage from "./pages/Calendar";
 import Profile from "./pages/Profile";
 import SaveGoalForm from "./pages/CreateGoal";
+import AuthForm from "./components/AuthForm";
 
 //import components
 // import LoginForm from "./components/LoginForm";
 // import SignupForm from "./components/SignupForm";
-
-import AuthForm from "./components/AuthForm";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -61,7 +60,7 @@ function App() {
     // if (currentPage === "Login") {
     //   return <LoginForm />;
     // }
-    if (currentPage === "Authform") {
+    if (currentPage === "AuthForm") {
       return <AuthForm />;
     }
   };
