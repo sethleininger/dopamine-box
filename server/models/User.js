@@ -49,9 +49,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called `goals` with the number of goals we have
-userSchema.virtual('goals').get(function () {
-  return this.goals.length;
-});
+// userSchema.virtual('goals').get(function () {
+//   return this.goals.length;
+// });
 
 const User = model('User', userSchema);
 
