@@ -2,12 +2,12 @@ import React from "react";
 import "./footer.css";
 import github from "../../assets/github-mark.png";
 const Footer = ({ ...props }) => (
-  <section className="footer_wrapper">
+  // <section className="footer_wrapper">
     <footer>
       <nav className="copyright">
         <p>
-          Copyright &copy; Geoffrey Langeberg, Elissa Maine, Zachary Lyski, Seth
-          Leininger, Andrew Muhn --
+          Copyright &copy; ** Geoffrey Langeberg, Elissa Maine, Zachary Lyski, Seth
+          Leininger, Andrew Muhn **
           {new Date().getFullYear()}{" "}
           <a href="https://github.com/sethleininger/dopamine-box">
             <img
@@ -19,7 +19,7 @@ const Footer = ({ ...props }) => (
         </p>
       </nav>
     </footer>
-  </section>
+  // </section>
 );
 
 export default Footer;
