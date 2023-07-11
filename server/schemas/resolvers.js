@@ -56,6 +56,22 @@ const resolvers = {
         );
       }
     },
+    completeTask: async (_parent, { goalId, taskId, newValue }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          {
+            _id: context.user._id,
+            'goals._id': goalId,
+            'goals.tasks._id': taskId,
+          },
+          { $set: { 'goals.$[goal].tasks.$[task].completed': newValue } },
+          {
+            new: true,
+            arrayFilters: [{ 'goal._id': goalId }, { 'task._id': taskId }],
+          }
+        );
+      }
+    },
     // added by zach for completed goals
     // completedGoal: async (_parent, { _id }, context) => {
     //   if (context.user) {
