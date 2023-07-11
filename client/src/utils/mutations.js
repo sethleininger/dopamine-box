@@ -84,3 +84,23 @@ export const COMPLETE_TASK = gql`
     }
   }
 `;
+
+export const UPDATE_STREAK = gql`
+  mutation UpdateStreak($goalId: ID!) {
+    updateStreak(goalId: $goalId) {
+      _id
+      goals {
+        streak
+        _id
+        endDate
+        name
+        startDate
+        tasks {
+          _id
+          completed
+          name
+        }
+      }
+    }
+  }
+`;

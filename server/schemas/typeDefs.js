@@ -54,7 +54,8 @@ const typeDefs = gql`
     saveGoal(input: SaveGoalInput!): User
     removeGoal(_id: ID!): User
     completeTask(goalId: ID!, taskId: ID!, newValue: Boolean!): User
-    # updateStreak(_id: ID!): User
+    updateStreak(goalId: ID!): User
+    # completedGoal(userId: ID!, _id: ID!): User
   }
 `;
 
