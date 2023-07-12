@@ -8,15 +8,13 @@ import "./CalendarComponent.css";
 const localizer = dayjsLocalizer(dayjs);
 
 const MyCalendar = ({ myEventsList, ...props }) => {
-  // Sample event object with start and end dates
-  const events = [
-    {
-      id: 1,
-      title: "Sample Event",
-      start: new Date(2023, 6, 12, 10, 0), // Set the start date and time
-      end: new Date(2023, 6, 12, 12, 0), // Set the end date and time
-    },
-  ];
+  // Convert the goal objects into event objects with start and end dates
+  const events = myEventsList.map((goal) => ({
+    id: goal._id, // Assuming each goal has a unique ID
+    title: goal.name,
+    start: new Date(goal.startDate), // Use the start date from the goal object
+    end: new Date(dayjs(goal.startDate).add(7, 'day')), // Set the end date as 7 days from the start date
+  }));
 
   return (
     <div className="calendar-comp">
@@ -30,5 +28,6 @@ const MyCalendar = ({ myEventsList, ...props }) => {
     </div>
   );
 };
+
 
 export default MyCalendar;
