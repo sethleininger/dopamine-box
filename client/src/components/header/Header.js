@@ -78,8 +78,8 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
               <span className="pageName">Profile</span>
             </a>
             <a
-              href="#calendar"
-              onClick={(event) => handleClickThree('Calendar', event)}
+              href="#calendarpage"
+              onClick={(event) => handleClickThree('CalendarPage', event)}
             >
               <span className="icon">
                 <img src={calendar} alt="" />
