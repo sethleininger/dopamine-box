@@ -1,23 +1,21 @@
-import React from 'react';
-import './header.css';
-import Auth from '../../utils/auth';
+import React, { useEffect, useState } from "react";
+import "./header.css";
+import Auth from "../../utils/auth";
 
-import home from '../../assets/home2.png';
-import profile from '../../assets/profile.png';
-import calendar from '../../assets/calendar.png';
-import goal from '../../assets/createGoal.png';
-import login from '../../assets/login.png';
-import logout from '../../assets/logout.png';
-import install from '../../assets/install.png';
+import home from "../../assets/home2.png";
+import profile from "../../assets/profile.png";
+import calendar from "../../assets/calendar.png";
+import goal from "../../assets/createGoal.png";
+import login from "../../assets/login.png";
+import logout from "../../assets/logout.png";
+import install from "../../assets/install.png";
 
-import useSound from 'use-sound';
-import relaxClick from '../../assets/sounds/relaxClick.mp3';
-import relaxClickTwo from '../../assets/sounds/relaxClick2-1.mp3';
-import relaxClickThree from '../../assets/sounds/relaxClick3-1.mp3';
-import relaxClickFour from '../../assets/sounds/relaxClick4-1.mp3';
-import relaxClickFive from '../../assets/sounds/relaxClick5-1.mp3'
-
-
+import useSound from "use-sound";
+import relaxClick from "../../assets/sounds/relaxClick.mp3";
+import relaxClickTwo from "../../assets/sounds/relaxClick2-1.mp3";
+import relaxClickThree from "../../assets/sounds/relaxClick3-1.mp3";
+import relaxClickFour from "../../assets/sounds/relaxClick4-1.mp3";
+import relaxClickFive from "../../assets/sounds/relaxClick5-1.mp3";
 
 const Header = ({ nav, direction, handlePageChange, ...props }) => {
   const [playOne] = useSound(relaxClick);
@@ -25,9 +23,36 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
   const [playThree] = useSound(relaxClickThree);
   const [playFour] = useSound(relaxClickFour);
   // const [playFive] = useSound(relaxClickFive);
+  const [installPrompt, setInstallPrompt] = useState(null);
+  useEffect(() => {
+    // Event listener for beforeinstallprompt event
+    const handleBeforeInstallPrompt = (event) => {
+      event.preventDefault(); // Prevent the default prompt from showing
+      setInstallPrompt(event); // Save the install prompt
+    };
 
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
+    };
+  }, []);
   const handleClickOne = (pageName, event) => {
     event.preventDefault();
+    if (installPrompt) {
+      installPrompt.prompt(); // Show the install prompt
+      installPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === "accepted") {
+          console.log("User accepted the install prompt.");
+        } else {
+          console.log("User dismissed the install prompt.");
+        }
+        setInstallPrompt(null); // Reset the install prompt variable
+      });
+    }
     handlePageChange(pageName);
     playOne(); // Play the sound on click
   };
@@ -48,20 +73,19 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
   };
 
   const signedIn = Auth.loggedIn();
-    const logOut = () => {
-      
-      Auth.logout();
-      // playFive();
-    };
+  const logOut = () => {
+    Auth.logout();
+    // playFive();
+  };
 
   if (signedIn) {
     return (
       <header>
-        <nav className={['navbar', `navbar--${direction}`].join(' ')}>
+        <nav className={["navbar", `navbar--${direction}`].join(" ")}>
           <div>
             <a
               href="#welcome"
-              onClick={(event) => handleClickOne('Welcome', event)}
+              onClick={(event) => handleClickOne("Welcome", event)}
             >
               <span className="icon">
                 <img src={home} alt="" />
@@ -70,7 +94,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
             </a>
             <a
               href="#profile"
-              onClick={(event) => handleClickTwo('Profile', event)}
+              onClick={(event) => handleClickTwo("Profile", event)}
             >
               <span className="icon">
                 <img src={profile} alt="" />
@@ -79,7 +103,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
             </a>
             <a
               href="#calendarpage"
-              onClick={(event) => handleClickThree('CalendarPage', event)}
+              onClick={(event) => handleClickThree("CalendarPage", event)}
             >
               <span className="icon">
                 <img src={calendar} alt="" />
@@ -88,7 +112,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
             </a>
             <a
               href="#creategoal"
-              onClick={(event) => handleClickFour('CreateGoal', event)}
+              onClick={(event) => handleClickFour("CreateGoal", event)}
             >
               <span className="icon">
                 <img src={goal} alt="" />
@@ -97,8 +121,13 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
             </a>
           </div>
           <div>
-            <a href="#welcome" role="button" id="buttonInstall">
-              <span className='icon'>
+            <a
+              href="#welcome"
+              role="button"
+              id="buttonInstall"
+              onClick={(event) => handleClickOne("Welcome", event)}
+            >
+              <span className="icon">
                 <img src={install} alt="" />
               </span>
               <span className="pageName">Install</span>
@@ -116,8 +145,11 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
   } else if (!signedIn) {
     return (
       <header className="header2">
-        <nav className={['navbar', `navbar--${direction}`].join(' ')}>
-          <a href="#welcome" onClick={(event) => handleClickOne('Welcome', event)}>
+        <nav className={["navbar", `navbar--${direction}`].join(" ")}>
+          <a
+            href="#welcome"
+            onClick={(event) => handleClickOne("Welcome", event)}
+          >
             <span className="icon">
               <img src={home} alt="" />
             </span>
@@ -125,7 +157,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
           </a>
           <a
             href="#authform"
-            onClick={(event) => handleClickTwo('AuthForm', event)}
+            onClick={(event) => handleClickTwo("AuthForm", event)}
           >
             <span className="icon">
               <img src={login} alt="" />
