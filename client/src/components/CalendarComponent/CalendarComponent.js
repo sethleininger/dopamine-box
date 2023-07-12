@@ -1,13 +1,9 @@
 import React from "react";
 import { Calendar } from "react-big-calendar";
 import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat";
-import dayjsExt from "dayjs-ext";
+import dayjsLocalizer from "react-big-calendar/lib/localizers/dayjs";
 
-dayjs.extend(localizedFormat);
-dayjs.extend(dayjsExt);
-
-const localizer = Calendar.momentLocalizer(dayjs);
+const localizer = dayjsLocalizer(dayjs);
 
 const MyCalendar = ({ myEventsList, ...props }) => {
   return (
