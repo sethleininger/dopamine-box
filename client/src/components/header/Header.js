@@ -12,20 +12,47 @@ import install from '../../assets/install.png';
 
 import useSound from 'use-sound';
 import relaxClick from '../../assets/sounds/relaxClick.mp3';
+import relaxClickTwo from '../../assets/sounds/relaxClick2-1.mp3';
+import relaxClickThree from '../../assets/sounds/relaxClick3-1.mp3';
+import relaxClickFour from '../../assets/sounds/relaxClick4-1.mp3';
+import relaxClickFive from '../../assets/sounds/relaxClick5-1.mp3'
 
-const signedIn = Auth.loggedIn();
-const logOut = () => {
-  Auth.logout();
-};
+
 
 const Header = ({ nav, direction, handlePageChange, ...props }) => {
-  const [play] = useSound(relaxClick);
+  const [playOne] = useSound(relaxClick);
+  const [playTwo] = useSound(relaxClickTwo);
+  const [playThree] = useSound(relaxClickThree);
+  const [playFour] = useSound(relaxClickFour);
+  // const [playFive] = useSound(relaxClickFive);
 
-  const handleClick = (pageName, event) => {
+  const handleClickOne = (pageName, event) => {
     event.preventDefault();
     handlePageChange(pageName);
-    play(); // Play the sound on click
+    playOne(); // Play the sound on click
   };
+  const handleClickTwo = (pageName, event) => {
+    event.preventDefault();
+    handlePageChange(pageName);
+    playTwo(); // Play the sound on click
+  };
+  const handleClickThree = (pageName, event) => {
+    event.preventDefault();
+    handlePageChange(pageName);
+    playThree(); // Play the sound on click
+  };
+  const handleClickFour = (pageName, event) => {
+    event.preventDefault();
+    handlePageChange(pageName);
+    playFour(); // Play the sound on click
+  };
+
+  const signedIn = Auth.loggedIn();
+    const logOut = () => {
+      
+      Auth.logout();
+      // playFive();
+    };
 
   if (signedIn) {
     return (
@@ -34,7 +61,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
           <div>
             <a
               href="#welcome"
-              onClick={(event) => handleClick('Welcome', event)}
+              onClick={(event) => handleClickOne('Welcome', event)}
             >
               <span className="icon">
                 <img src={home} alt="" />
@@ -43,7 +70,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
             </a>
             <a
               href="#profile"
-              onClick={(event) => handleClick('Profile', event)}
+              onClick={(event) => handleClickTwo('Profile', event)}
             >
               <span className="icon">
                 <img src={profile} alt="" />
@@ -52,7 +79,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
             </a>
             <a
               href="#calendar"
-              onClick={(event) => handleClick('Calendar', event)}
+              onClick={(event) => handleClickThree('Calendar', event)}
             >
               <span className="icon">
                 <img src={calendar} alt="" />
@@ -61,7 +88,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
             </a>
             <a
               href="#creategoal"
-              onClick={(event) => handleClick('CreateGoal', event)}
+              onClick={(event) => handleClickFour('CreateGoal', event)}
             >
               <span className="icon">
                 <img src={goal} alt="" />
@@ -90,7 +117,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
     return (
       <header className="header2">
         <nav className={['navbar', `navbar--${direction}`].join(' ')}>
-          <a href="#welcome" onClick={(event) => handleClick('Welcome', event)}>
+          <a href="#welcome" onClick={(event) => handleClickOne('Welcome', event)}>
             <span className="icon">
               <img src={home} alt="" />
             </span>
@@ -98,7 +125,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
           </a>
           <a
             href="#authform"
-            onClick={(event) => handleClick('AuthForm', event)}
+            onClick={(event) => handleClickTwo('AuthForm', event)}
           >
             <span className="icon">
               <img src={login} alt="" />
