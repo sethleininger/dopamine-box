@@ -37,12 +37,8 @@ const resolvers = {
       return { token, user };
     },
     saveGoal: async (_parent, { input }, context) => {
-<<<<<<< Updated upstream
       console.log(input);
 
-=======
-      // console.log(input);
->>>>>>> Stashed changes
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },

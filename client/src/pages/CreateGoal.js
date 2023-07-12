@@ -23,9 +23,9 @@ const SaveGoalForm = () => {
         [name]: value,
       }));
     } else {
-      const updatedTasks = [...goalFormData.task];
+      const updatedTasks = [...goalFormData.tasks];
       const taskIndex = Number(name.replace('Task', '')) - 1;
-      updatedTasks[taskIndex] = value;
+      updatedTasks[taskIndex] = {name: value};
 
       setGoalFormData((prevState) => ({
         ...prevState,
