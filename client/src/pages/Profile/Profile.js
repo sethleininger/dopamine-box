@@ -183,9 +183,12 @@ function Profile() {
               </div>
             )
           )}
-          <button onClick={decreaseIndex}>Prev</button>
-          <button onClick={resetTasks}>Reset</button>
-          <button onClick={increaseIndex}>Next</button>
+          <div className="button-group">
+            <button onClick={decreaseIndex}>Prev</button>
+            <button onClick={resetTasks}>Reset</button>
+            <button onClick={increaseIndex}>Next</button>
+          </div>
+
         </div>
       </div>
     </div>

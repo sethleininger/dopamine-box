@@ -73,6 +73,11 @@ button {
   box-shadow: 2px 2px 5px var(--gray);
 }
 
+button:hover {
+  box-shadow: 4px 4px 10px 5px var(--gray);
+  translate: 0 -2px;
+}
+
 .btn-success {
   width: 70px;
   align-self: center;

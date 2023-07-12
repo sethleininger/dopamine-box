@@ -109,6 +109,16 @@
     
 }
 
-/* .content-wrapper .task-box input[type="checkbox"] {
-    visibility: hidden;
-} */
+.content-wrapper .task-box .button-group {
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.content-wrapper .task-box .button-group button {
+    background-color: var(--peach);
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(135, 165, 158);
+}
