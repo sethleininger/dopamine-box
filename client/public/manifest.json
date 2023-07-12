@@ -8,18 +8,20 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "logo-120x120.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "120x120"
     },
     {
-      "src": "logo512.png",
+      "src": "logo-180x180.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "180x180"
     }
   ],
-  "start_url": ".",
+  "start_url": "./",
+  "orientation": "portrait",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "description": "A goal and habit tracker with added effects which are designed to increase your dopamine intake and help reinforce your positive habits",
+  "theme_color": "#f7c6a3",
+  "background_color": "#f7c6a3"
 }
