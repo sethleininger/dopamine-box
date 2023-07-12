@@ -3,7 +3,7 @@ header {
   flex-direction: Row;
   background-color: var(--peach);
   justify-content: space-between;
-  height: 90px;
+  height: 70px;
 }
 
 
