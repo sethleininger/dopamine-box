@@ -2,7 +2,7 @@ import React from "react";
 import "./header.css";
 import Auth from '../../utils/auth';
 
-import home from "../../assets/home.png";
+import home from "../../assets/home2.png";
 import profile from "../../assets/profile.png";
 import calendar from "../../assets/calendar.png";
 import goal from "../../assets/createGoal.png";

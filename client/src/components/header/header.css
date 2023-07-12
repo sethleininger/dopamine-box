@@ -6,7 +6,6 @@ header {
   height: 70px;
 }
 
-
 nav {
   display: flex;
   flex-direction: Row;
@@ -25,22 +24,13 @@ a {
   padding: 5px 10px;
   color: black;
   margin-right: 10px;
-  background-image: linear-gradient(270deg, var(--dutch-white) 0%, var(--salmon-pinked) 50%);
-  background-repeat: no-repeat;
-  background-size: 100% 0.2em;
-  background-position: bottom;
-  transition: all 0.25s ease-in;
   font-size: 1.2rem;
-  width: 50px;
   position: relative;
-  width: 100px;
 }
-
 
 a:nth-child(5) {
   justify-self: flex-end;
 }
-
 
 a img {
   width: 80px;
@@ -51,17 +41,14 @@ a img {
   /* visibility: hidden; */
 }
 
-
 a .pageName {
   text-shadow: 5px 0 5px var(--platnum);
   visibility: hidden;
 }
 
-
 a:hover img {
   visibility: hidden;
 }
-
 
 a:hover .pageName {
   visibility: visible;

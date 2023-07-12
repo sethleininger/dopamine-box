@@ -2,17 +2,18 @@ import React from "react";
 
 import "./Welcome.css";
 
-import star3 from "../../assets/star3.png";
+import star3 from "../../assets/starFull.png";
 import star4 from "../../assets/star4.png";
 import star5 from "../../assets/star5.png";
 import star6 from "../../assets/star6.png";
 import star7 from "../../assets/star7.png";
 import star8 from "../../assets/star8.png";
 import box2 from "../../assets/box2.svg";
+import stars1 from "../../assets/stars1.png";
+import starhappy from "../../assets/starhappy.png";
 
 
 export default function Welcome() {
-
   return (
     <main className="welcome-page">
       <div className="WP-welcome">
@@ -50,21 +51,18 @@ export default function Welcome() {
           <img src={star3} alt="blue 4 pointed star" />
         </div>
 
-      </div>
-
-
-        <div className="star shooting">
-          <img src={star4} alt="a shooting star" />
-        </div>
-        <div className="star shine">
-          <img src={star5} alt="" />
-        </div>
         <div className="star orange">
           <img src={star6} alt="" />
         </div>
+
+        <div className="star shine">
+          <img src={star5} alt="" />
+        </div>
+
         <div className="star yelloworange">
           <img src={star7} alt="" />
         </div>
+      </div>
 
       <div>
         <div className="discription">
@@ -76,9 +74,21 @@ export default function Welcome() {
 
         <div className="getStarted">
           <h2>Get started sighning up or logging in and creating a goal</h2>
+          <div className="star shooting ">
+            <img src={star4} alt="a shooting star" />
+          </div>
+          <div className="star yellow">
+            <img src={star3} alt="" />
+            <img src={star5} alt="" />
+          </div>
         </div>
         
-        {/* add link to create goal page */}
+        <div className="star stars1">
+          <img src={stars1} alt="" />
+        </div>
+        <div className="star happy-star">
+          <img src={starhappy} alt="" />
+        </div>
       </div>
     </main>
   )
