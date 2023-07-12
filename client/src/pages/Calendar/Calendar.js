@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 
 export default function CalendarPage() {
-
   return (
     <main className="calender-page">
       <div className="key">
