@@ -11,13 +11,9 @@ import { setContext } from "@apollo/client/link/context";
 // import pages
 import Welcome from "./pages/Welcome/Welcome";
 import CalendarPage from "./pages/Calendar";
-import Profile from "./pages/Profile";
+import Profile from "./pages/Profile/Profile";
 import SaveGoalForm from "./pages/CreateGoal";
 import AuthForm from "./components/AuthForm";
-
-//import components
-// import LoginForm from "./components/LoginForm";
-// import SignupForm from "./components/SignupForm";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
