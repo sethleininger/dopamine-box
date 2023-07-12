@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 
+import useSound from "use-sound";
+import signinClick from "../../assets/sounds/signinClick.mp3";
+
 import Auth from "../../utils/auth";
 
 import "./AuthForm.css";
-
 
 const AuthForm = () => {
   const [addUser, { error: signupError }] = useMutation(ADD_USER);
@@ -45,6 +47,7 @@ const AuthForm = () => {
         const { data } = await login({ variables: { ...userFormData } });
         Auth.login(data.login.token);
       }
+      // play();
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -56,6 +59,14 @@ const AuthForm = () => {
       password: "",
     });
   };
+
+  const [play] = useSound(signinClick);
+
+  useEffect(() => {
+    if (!isSignup) {
+      play();
+    }
+  }, [isSignup, play]);
 
   return (
     <div className="login">
@@ -70,22 +81,20 @@ const AuthForm = () => {
             ? "Something went wrong with your signup!"
             : "Something went wrong with your login credentials!"}
         </Alert>
-
         
-          <Form.Group className='mb-3'>
-            <Form.Label htmlFor='email'>Email</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Your email'
-              name='email'
-              onChange={handleInputChange}
-              value={userFormData.email}
-              required
-            />
-            <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-          </Form.Group>
-      
-
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Control
+            type='email'
+            placeholder='Your email'
+            name='email'
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+        </Form.Group>
+        
         {isSignup && (
           <Form.Group className="mb-3">
             <Form.Label htmlFor="username">Username</Form.Label>
@@ -125,7 +134,6 @@ const AuthForm = () => {
           }
           type="submit"
           variant="success"
-          onClick={console.log(userFormData)}
         >
           {isSignup ? "Sign Up" : "Log In"}
         </Button>
