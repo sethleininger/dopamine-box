@@ -8,6 +8,7 @@ import calendar from '../../assets/calendar.png';
 import goal from '../../assets/createGoal.png';
 import login from '../../assets/login.png';
 import logout from '../../assets/logout.png';
+import install from '../../assets/install.png';
 
 import useSound from 'use-sound';
 import relaxClick from '../../assets/sounds/relaxClick.mp3';
@@ -70,6 +71,9 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
           </div>
           <div>
             <a href="#welcome" role="button" id="buttonInstall">
+              <span className='icon'>
+                <img src={install} alt="" />
+              </span>
               <span className="pageName">Install</span>
             </a>
             <a href="#welcome" onClick={logOut}>
