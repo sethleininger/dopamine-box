@@ -136,12 +136,14 @@
   text-align: center;
   padding: 20px;
   padding-top: 40px;
+  color: black;
 }
 
 .getStarted h2 {
   font-weight: 200;
   text-align: center;
   padding: 15px;
+  color: black;
 }
 
 .discription {
@@ -154,6 +156,7 @@
   border-radius: 30%;
   animation: fadeIn 5s;
   box-shadow: 0 0 10px 5px var(--gray);
+  /* color: black; */
 }
 
 .getStarted {
@@ -166,6 +169,7 @@
   border-radius: 30%;
   animation: fadeIn 6s;
   box-shadow: 0 0 5px 2px var(--gray);
+  /* color: black; */
 }
 
 .star {
