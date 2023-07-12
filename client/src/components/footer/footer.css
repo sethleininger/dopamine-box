@@ -30,4 +30,10 @@ footer p {
     margin: 0;
     text-align: center;
     flex-grow: 1;
+    font-family: 'Nunito', sans-serif;
+}
+
+footer a img {
+    top: 5px;
+    left: 5px;
 }
