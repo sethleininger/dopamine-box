@@ -12,7 +12,7 @@
 }
 
 .login form {
-  height: 60%;
+  height: 70%;
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,27 @@
   font-weight: 300;
   font-size: 20px;
   padding-bottom: 20px;
+}
+
+.login form div {
+  padding: 5px;
+}
+
+.login form .alert {
+  background-color: var(--salmon-pink);
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 17px;
+  color: white;
+  text-shadow: 0 0 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.login form .alert button {
+  visibility: hidden;
 }
 
 
@@ -32,6 +53,7 @@
   padding-left: 10px;
   background-color: var(--platinum);
   box-shadow: 2px 2px 5px var(--gray);
+  margin: 3px;
 }
 
 .login form input:focus {
