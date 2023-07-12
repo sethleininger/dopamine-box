@@ -1,23 +1,114 @@
 .page_wrapper {
-    color: white;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    width: 800px;
+    height: 800px;
+    background-color: var(--dutch-white);
+    border-radius: 25%;
+    margin: 50px 0px 0px 0px;
+    box-shadow: 0 0 10px 5px var(--gray);
+    align-items: center;
 }
 
 .content-wrapper {
-    color: white;
     text-align: center;
+    height: 700px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
 }
 
-h2, h3 {
-    color: white;
+.content-wrapper h2 {
+    font-size: 54px;
+    font-weight: 400;
+    text-shadow: 1px 5px 5px var(--salmon-pink);
+    translate: 0 -60px;
 }
 
-.label {
-    color: white;
+.content-wrapper h2 span img {
+    position: absolute;
+    top: -90px;
+    left: -78px;
+    width: 150px;
+    rotate: -32deg;
+    visibility: hidden;
 }
 
-.task-checkbox {
-    color: white;
+.content-wrapper .streak {
+    font-size: 22px;
+    font-weight: 300;
+    translate: 0 -244px;
 }
+
+.content-wrapper .streak img {
+    height: 40px;
+    translate: 0 12px;
+}
+
+.content-wrapper .current-goal {
+    font-size: 30px;
+    font-weight: 400;
+    translate: 0 -360px;
+}
+
+.content-wrapper .task-box {
+    position: absolute;
+    width: 100%;
+    background-color: var(--mint-green);
+    height: 400px;
+    bottom: 20px;
+    border-radius: 50px; 
+    /* box-shadow: 0 0 5px 3px var(--gray); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.content-wrapper .task-box .task {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-wrapper .task-box .task label {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 20px 0px 0px 20px;
+}
+
+/* .content-wrapper .task-box .task-checkbox, */
+.content-wrapper .task-box .task input[type="checkbox"] {
+    width: 40px;
+    height: 40px;
+    border-radius: 30%;
+    /* border: 2px solid var(--dutch-white); */
+    background-color: var(--dutch-white);
+    box-shadow: 3px 3px 5px rgb(135, 165, 158);
+    margin: 20px 20px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute;
+    bottom: 40px;
+    right: 40px;
+    z-index: 10; */
+}
+
+.content-wrapper .task-box .task-checkbox:hover {
+    box-shadow: 4px 4px 5px rgb(135, 165, 158);
+    translate: 0 -3px;
+}
+
+.content-wrapper .task-box .task-checkbox::after {
+    box-shadow: 1px 1px 3px rgb(135, 165, 158);
+
+    
+}
+
+/* .content-wrapper .task-box input[type="checkbox"] {
+    visibility: hidden;
+} */
