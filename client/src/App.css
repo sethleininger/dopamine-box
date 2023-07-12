@@ -31,3 +31,9 @@ body {
   background-position: center;
   background-color: var(--platinum);
 }
+
+.renderPage {
+  margin-bottom: 50px;
+  padding-bottom: 100px;
+  height: 100vh;
+}
