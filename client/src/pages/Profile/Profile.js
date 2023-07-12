@@ -46,6 +46,24 @@ function Profile() {
     }
   };
 
+  const resetTasks = async () => {
+    try {
+      const goalId = userData.goals[currentArrayIndex]._id;
+
+      userData.goals[currentArrayIndex].tasks.forEach(async (task) => {
+        await completeTask({
+          variables: {
+            goalId: goalId,
+            taskId: task._id,
+            newValue: false,
+          },
+        });
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const handleCheckboxChange = async (goalId, taskId, newValue) => {
     try {
       const { data } = await completeTask({
@@ -152,12 +170,14 @@ function Profile() {
                       completed
                     )
                   }
+                  disabled={completed}
                 />
               </div>
             )
           )}
-          <button onClick={decreaseIndex}>prev</button>
-          <button onClick={increaseIndex}>next</button>
+          <button onClick={decreaseIndex}>Prev</button>
+          <button onClick={resetTasks}>Reset</button>
+          <button onClick={increaseIndex}>Next</button>
         </div>
       </div>
     </div>
