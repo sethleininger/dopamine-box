@@ -14,10 +14,10 @@ export default function CalendarPage() {
     <main className="calender-page">
       <div className="key">
         <ul>
-          <li><FontAwesomeIcon icon={faBoxOpen} color="#BAE3DA"/> completed</li>
-          <li><FontAwesomeIcon icon={faBoxOpen} color="#FAEDCB"/> today</li>
-          <li><FontAwesomeIcon icon={faBoxOpen} color="#FAA5AB"/> incomplete</li>
-          <li><FontAwesomeIcon icon={faBoxOpen} color="#F7C6A3"/> future</li>
+          <li><FontAwesomeIcon icon={faBoxOpen} color="#BAE3DA"/> Completed</li>
+          <li><FontAwesomeIcon icon={faBoxOpen} color="#FAEDCB"/> Today</li>
+          <li><FontAwesomeIcon icon={faBoxOpen} color="#FAA5AB"/> Incomplete</li>
+          <li><FontAwesomeIcon icon={faBoxOpen} color="#F7C6A3"/> Future</li>
         </ul>
       </div>
       <div className="streak">

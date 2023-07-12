@@ -66,14 +66,14 @@ export default function Welcome() {
 
       <div>
         <div className="discription">
-          <h2>An app that helps you build healthy habits to improve your mental health and achieve your goals through positive reinforcement.</h2>
+          <h2>An app that helps you build healthy habits to improve your mental health, and achieve your goals through positive reinforcement.</h2>
           <div className="star green">
             <img src={star8} alt="" />
           </div>
         </div>
 
         <div className="getStarted">
-          <h2>Get started sighning up or logging in and creating a goal</h2>
+          <h2>Get started by signing up, or logging in and creating a goal!</h2>
           <div className="star shooting ">
             <img src={star4} alt="a shooting star" />
           </div>
