@@ -7,6 +7,7 @@ import profile from "../../assets/profile.png";
 import calendar from "../../assets/calendar.png";
 import goal from "../../assets/createGoal.png";
 import login from "../../assets/login.png";
+import logout from "../../assets/logout.png";
 
 const signedIn = Auth.loggedIn();
 const logOut = () => {
@@ -54,7 +55,12 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
           </div>
           <div>
             <a href="#welcome" onClick={logOut}>
-              Logout
+              <span className="icon">
+                <img src={logout} alt="" />
+              </span>
+              <span className="pageName">
+                Logout
+              </span>
             </a>            
           </div>
         </nav>
