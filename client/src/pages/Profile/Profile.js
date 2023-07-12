@@ -1,8 +1,8 @@
 import React from 'react';
-// import Profile.css
+import './Profile.css'; // Import Profile.css file
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_ME } from '../utils/queries';
-import { COMPLETE_TASK, UPDATE_STREAK } from '../utils/mutations';
+import { GET_ME } from '../../utils/queries';
+import { COMPLETE_TASK, UPDATE_STREAK } from '../../utils/mutations';
 
 function Profile() {
   const { loading, data } = useQuery(GET_ME);
