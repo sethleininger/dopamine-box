@@ -21,7 +21,8 @@
     "react-calendar": "^4.3.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^6.2.1",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "use-sound": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
