@@ -8,6 +8,9 @@ import {
   RESET_STREAK,
 } from '../../utils/mutations';
 
+import useSound from "use-sound";
+import clickOne from "../../assets/sounds/gannonSound2.mp3";
+
 function Profile() {
   const [allChecked, setAllChecked] = useState(false);
   const [isPastMidnight, setIsPastMignight] = useState(false);
@@ -18,6 +21,8 @@ function Profile() {
   const [completeTask, { error }] = useMutation(COMPLETE_TASK);
   const [updateStreak] = useMutation(UPDATE_STREAK);
   const [resetStreak] = useMutation(RESET_STREAK);
+
+  const [play] = useSound(clickOne); // Initialize the useSound hook
 
   const handleCheckboxChange = async (goalId, taskId, newValue) => {
     try {
@@ -37,6 +42,8 @@ function Profile() {
       if (error) {
         throw new Error('something went wrong!');
       }
+
+      play(); // Play the sound when the checkbox is clicked
     } catch (e) {
       console.error(e);
     }
@@ -89,7 +96,7 @@ function Profile() {
         <h3>Current Goal: {userData.goals[0].name}</h3>
         <div className="task-box">
           {userData.goals[0].tasks.map(({ name, index, completed, _id }) => (
-            <>
+            <div key={_id}>
               <label>{name}</label>
               <input
                 className="task-checkbox"
@@ -99,8 +106,8 @@ function Profile() {
                 onChange={() =>
                   handleCheckboxChange(userData.goals[0]._id, _id, completed)
                 }
-              ></input>
-            </>
+              />
+            </div>
           ))}
         </div>
       </div>
