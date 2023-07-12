@@ -37,7 +37,8 @@ const resolvers = {
       return { token, user };
     },
     saveGoal: async (_parent, { input }, context) => {
-      console.log(args);
+      console.log(input);
+
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
@@ -51,26 +52,33 @@ const resolvers = {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { goals: { _id: _id } } },
+          { $pull: { goals: { _id } } },
           { new: true }
         );
       }
+      throw new AuthenticationError('You must be logged in to remove a goal.');
     },
     completeTask: async (_parent, { goalId, taskId, newValue }, context) => {
       if (context.user) {
-        return User.findOneAndUpdate(
-          {
-            _id: context.user._id,
-            'goals._id': goalId,
-            'goals.tasks._id': taskId,
-          },
-          { $set: { 'goals.$[goal].tasks.$[task].completed': newValue } },
-          {
-            new: true,
-            arrayFilters: [{ 'goal._id': goalId }, { 'task._id': taskId }],
-          }
-        );
+        try {
+          return User.findOneAndUpdate(
+            {
+              _id: context.user._id,
+              'goals._id': goalId,
+              'goals.tasks._id': taskId,
+            },
+            { $set: { 'goals.$[goal].tasks.$[task].completed': newValue } },
+            {
+              new: true,
+              arrayFilters: [{ 'goal._id': goalId }, { 'task._id': taskId }],
+            }
+          );
+        } catch (error) {
+          console.error(error);
+          throw new Error('An error occurred while updating the task completion status.');
+        }
       }
+      throw new AuthenticationError('You must be logged in to update task completion.');
     },
     updateStreak: async (_parent, { goalId }, context) => {
       if (context.user) {

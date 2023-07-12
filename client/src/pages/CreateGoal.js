@@ -16,47 +16,47 @@ const SaveGoalForm = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-
-    if ( name === 'name') {
-        setGoalFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  
+    if (name === 'name') {
+      setGoalFormData((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
     } else {
-      const updatedTasks = [...goalFormData.task];
       const taskIndex = Number(name.replace('Task', '')) - 1;
+      const updatedTasks = [...goalFormData.task];
       updatedTasks[taskIndex] = value;
-
+  
       setGoalFormData((prevState) => ({
         ...prevState,
         task: updatedTasks,
       }));
     }
-  };
+  };  
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // alert(`You have added ${goalFormData.name} as a goal`);
-
-    // const form = event.currrentTarget;
-    // if (form.checkValidity() === false) {
-    //   event.preventDefault();
-    //   event.stopPropagation();
-    // }
-
+  
     try {
-      const { data } = await addGoal({ variables: { ...goalFormData } });
+      const { data } = await addGoal({
+        variables: {
+          input: {
+            name: goalFormData.name,
+            task: goalFormData.task,
+          },
+        },
+      });
       console.log(data, "line");
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error("Error:", error);
     }
-    
-
+  
     setGoalFormData({
       name: "",
       task: ["", "", "", "", ""],
     });
   };
+  
 
   return (
     <>
