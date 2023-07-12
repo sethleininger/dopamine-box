@@ -23,11 +23,17 @@ footer {
     align-items: center;
     padding: 5px 0px 5px 0px;
     margin: 25px 0px 0px 0px;
-    opacity: 80%;
+    opacity: 90%;
 }
 
 footer p {
     margin: 0;
     text-align: center;
     flex-grow: 1;
+    font-family: 'Nunito', sans-serif;
+}
+
+footer a img {
+    top: 5px;
+    left: 5px;
 }

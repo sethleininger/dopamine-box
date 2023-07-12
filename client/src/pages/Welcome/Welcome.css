@@ -5,6 +5,7 @@
   align-items: center;
   position: relative;
   width: 100%;
+  height: 1500px;
 }
 
 .WP-welcome {
@@ -148,8 +149,8 @@
 
 .discription {
   position: absolute;
-  top: 700px;
-  left: 100px;
+  top: 300px;
+  left: 60px;
   width: 300px;
   height: 300px;
   background-color: var(--periwinkle);
@@ -161,7 +162,7 @@
 
 .getStarted {
   position: absolute;
-  top: 700px;
+  top: 200px;
   right: 100px;
   width: 200px;
   height: 200px;
@@ -182,34 +183,121 @@
 }
 
 .blue {
-  left: 440px;
-  top: 10px;
-  animation: pulse 5s infinite;
+  left: 500px;
+  top: -60px;
+  animation: pulse 3s infinite;
+}
+
+.blue img {
+  width: 80px;
 }
 
 .shooting {
-  left: 0;
-  top: 0;
+  left: -40px;
+  top: -56px;
+  animation: wobble 20s infinite;
+}
+
+.shooting img {
+  rotate: 20deg;
 }
 
 .shine {
-  left: 820px;
-  top: 60px;
-  animation: shakeY 10s infinite;
+  left: 400px;
+  top: -40px;
+  width: 40px;
+  animation: shakeY 30s infinite;
+}
+
+.shine img {
+  width: 60px;
 }
 
 .orange {
-  left: 0;
-  top: 0;
+  left: -7px;
+  top: 548px;
+  animation: wobble 30s infinite;
+  animation-delay: 1s;
 }
 
 .yelloworange {
-  left: 0;
-  top: 0;
+  left: 450px;
+  top: 10px;
+}
+
+.yelloworange img {
+  width: 80px;
 }
 
 .green {
   left: -40px;
   top: -10px;
-  animation: flash 4s infinite;
+  animation: pulse 4s infinite;
+}
+
+.yellow {
+  left: 185px;
+  top: 95px;
+  /* visibility: hidden; */
+}
+
+.yellow img:nth-child(2) {
+  width: 50px;
+}
+
+.stars1 {
+  left: 200px;
+  top: 50px;
+  animation: fadeIn 5s;
+  transition: ease-in;
+  rotate: 30deg;
+  /* visibility: hidden; */
+}
+
+.stars1 img {
+  width: 170px;
+  rotate: 50deg;
+}
+
+.happy-star {
+  right: 202px;
+  top: 577px;
+  animation: fadeIn 5s;
+  /* visibility: hidden; */
+}
+
+.happy-star img {
+  width: 60px;
+}
+
+@media screen and (max-width: 1150px) {
+  .getStarted {
+    top: 750px;
+    right: 100px;
+  }
+
+  .discription {
+    top: 800px;
+    left: 60px;
+  }
+
+  .happy-star {
+    visibility: hidden;
+  }
+} 
+
+@media screen and (max-width: 1460px) {
+  .getStarted {
+    top: 750px;
+    right: 200px;
+  }
+
+  .discription {
+    top: 800px;
+    left: 160px;
+  }
+
+  .stars1 {
+    visibility: hidden;
+  }
 }
