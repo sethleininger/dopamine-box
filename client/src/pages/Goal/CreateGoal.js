@@ -47,8 +47,11 @@ const SaveGoalForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    const filteredTasks = goalFormData.tasks.filter((task) => task.name !== "");
     try {
-      const { data } = await saveGoal({ variables: { input: goalFormData } });
+      const { data } = await saveGoal({
+        variables: { input: { name: goalFormData.name, tasks: filteredTasks } },
+      });
       console.log(data, "line");
     } catch (error) {
       console.error("Error:", error);
@@ -142,7 +145,7 @@ const SaveGoalForm = () => {
         <Button
           disabled={
             !goalFormData.name ||
-            !goalFormData.tasks.slice(0, 3).every((task) => task !== "")
+            !goalFormData.tasks.slice(0, 3).every((task) => task.name !== "")
           }
           type="submit"
           variant="success"
