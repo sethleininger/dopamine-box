@@ -115,6 +115,21 @@ const resolvers = {
         );
       }
     },
+    datesCompleted: async (_parent, { goalId, newValue }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          {
+            _id: context.user._id,
+            'goals._id': goalId,
+          },
+          { $addToSet: { 'goals.$[goal].datesCompleted': newValue } },
+          {
+            new: true,
+            arrayFilters: [{ 'goal._id': goalId }],
+          }
+        );
+      }
+    },
     // added by zach for completed goals
     // completedGoal: async (_parent, { userId, _id }, context) => {
     //   // if (context.user) {

@@ -18,7 +18,7 @@ const typeDefs = gql`
     startDate: String
     endDate: String
     streak: Int!
-    datesCompleted: [String!]
+    datesCompleted: [String]
   }
 
   type Auth {
@@ -58,6 +58,7 @@ const typeDefs = gql`
     completeTask(goalId: ID!, taskId: ID!, newValue: Boolean!): User
     updateStreak(goalId: ID!): User
     resetStreak(goalId: ID!): User
+    datesCompleted(goalId: ID!, newValue: String): User
     # completedGoal(userId: ID!, _id: ID!): User
   }
 `;

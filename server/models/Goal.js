@@ -20,6 +20,7 @@ const goalSchema = new Schema({
     type: Number,
     default: 0,
   },
+  datesCompleted: [Date],
 });
 
 module.exports = goalSchema;

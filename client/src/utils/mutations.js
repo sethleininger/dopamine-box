@@ -124,3 +124,24 @@ export const RESET_STREAK = gql`
     }
   }
 `;
+
+export const DATES_COMPLETED = gql`
+  mutation datesCompleted($goalId: ID!, $newValue: String) {
+    datesCompleted(goalId: $goalId, newValue: $newValue) {
+      _id
+      goals {
+        streak
+        datesCompleted
+        _id
+        endDate
+        name
+        startDate
+        tasks {
+          _id
+          completed
+          name
+        }
+      }
+    }
+  }
+`;

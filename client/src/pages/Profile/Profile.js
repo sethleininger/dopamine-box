@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from "react";
-import "./Profile.css";
+import React, { useEffect, useState } from 'react';
+import './Profile.css';
 
-import { useQuery, useMutation } from "@apollo/client";
-import { GET_ME } from "../../utils/queries";
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_ME } from '../../utils/queries';
 import {
   COMPLETE_TASK,
   UPDATE_STREAK,
   RESET_STREAK,
-} from "../../utils/mutations";
+  DATES_COMPLETED,
+} from '../../utils/mutations';
 
-import useSound from "use-sound";
-import clickOne from "../../assets/sounds/gannonSound2.mp3";
+import useSound from 'use-sound';
+import clickOne from '../../assets/sounds/gannonSound2.mp3';
 
-import starhappy from "../../assets/starhappy.png";
-import fire from "../../assets/fire.png";
+import starhappy from '../../assets/starhappy.png';
+import fire from '../../assets/fire.png';
 
 function Profile() {
   const [allChecked, setAllChecked] = useState(false);
@@ -25,6 +26,7 @@ function Profile() {
   const [completeTask, { error }] = useMutation(COMPLETE_TASK);
   const [updateStreak] = useMutation(UPDATE_STREAK);
   const [resetStreak] = useMutation(RESET_STREAK);
+  const [datesCompleted] = useMutation(DATES_COMPLETED);
 
   const [play] = useSound(clickOne); // Initialize the useSound hook
 
@@ -74,13 +76,19 @@ function Profile() {
       const allTasksChecked = tasks.every((task) => task.completed);
       setAllChecked(allTasksChecked);
       if (allTasksChecked) {
-        const { data } = await updateStreak({
+        const { data: updateStreakData } = await updateStreak({
           variables: { goalId: goalId },
         });
-      }
 
+        const date = new Date();
+
+        const { data: datesCompletedData } = await datesCompleted({
+          variables: { goalId: goalId, newValue: date },
+        });
+        console.log(datesCompletedData);
+      }
       if (error) {
-        throw new Error("something went wrong!");
+        throw new Error('something went wrong!');
       }
 
       play(); // Play the sound when the checkbox is clicked
