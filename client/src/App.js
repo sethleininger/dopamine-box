@@ -13,7 +13,7 @@ import Welcome from "./pages/Welcome/Welcome";
 import CalendarPage from "./pages/Calendar";
 import Profile from "./pages/Profile";
 import SaveGoalForm from "./pages/CreateGoal";
-import AuthForm from "./components/AuthForm";
+import AuthForm from "./components/AuthForm/AuthForm";
 
 //import components
 // import LoginForm from "./components/LoginForm";

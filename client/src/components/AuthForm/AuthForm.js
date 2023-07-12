@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 
 import { useMutation } from "@apollo/client";
-import { ADD_USER, LOGIN_USER } from "../utils/mutations";
+import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 
-import Auth from "../utils/auth";
+import Auth from "../../utils/auth";
+
+import "./AuthForm.css";
+
 
 const AuthForm = () => {
   const [addUser, { error: signupError }] = useMutation(ADD_USER);
@@ -55,7 +58,7 @@ const AuthForm = () => {
   };
 
   return (
-    <>
+    <div className="login">
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
           dismissible
@@ -135,7 +138,10 @@ const AuthForm = () => {
             : "Don't have an account? Sign up here."}
         </Button>
       </div>
-    </>
+      <div className="some-flair">
+        <img src="" alt="" />
+      </div>
+    </div>
   );
 };
 
