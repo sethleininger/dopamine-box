@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import Profile.css
+import './Profile.css';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ME } from '../../utils/queries';
 import {
@@ -8,8 +8,8 @@ import {
   RESET_STREAK,
 } from '../../utils/mutations';
 
-import useSound from "use-sound";
-import clickOne from "../../assets/sounds/gannonSound2.mp3";
+import useSound from 'use-sound';
+import clickOne from '../../assets/sounds/gannonSound2.mp3';
 
 function Profile() {
   const [allChecked, setAllChecked] = useState(false);
