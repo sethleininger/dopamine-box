@@ -12,7 +12,7 @@ import { setContext } from "@apollo/client/link/context";
 import Welcome from "./pages/Welcome/Welcome";
 import CalendarPage from "./pages/Calendar";
 import Profile from "./pages/Profile/Profile";
-import SaveGoalForm from "./pages/CreateGoal";
+import SaveGoalForm from "./pages/Goal/CreateGoal";
 import AuthForm from "./components/AuthForm";
 
 import Header from "./components/header/Header";
