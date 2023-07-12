@@ -150,7 +150,7 @@ const SaveGoalForm = () => {
           type="submit"
           variant="success"
         >
-          Add Goal
+          Add a Goal
         </Button>
       </Form>
     </>
