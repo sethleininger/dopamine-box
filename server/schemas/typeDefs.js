@@ -15,7 +15,7 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     tasks: [Task]
-    startDate: String!
+    startDate: String
     endDate: String
     streak: Int!
   }
@@ -32,15 +32,16 @@ const typeDefs = gql`
   }
 
   input TaskInput {
-    _id: ID!
+    # _id: ID!
     name: String!
-    completed: Boolean!
+    # completed: Boolean!
   }
 
   input SaveGoalInput {
-    _id: ID!
+    # _id: ID!
+    name: String!
     tasks: [TaskInput]!
-    startDate: String!
+    startDate: String
     endDate: String
   }
 

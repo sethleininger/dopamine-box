@@ -1,0 +1,24 @@
+.page_wrapper {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+}
+
+.content-wrapper {
+    color: white;
+    text-align: center;
+}
+
+h2, h3 {
+    color: white;
+}
+
+.label {
+    color: white;
+}
+
+.task-checkbox {
+    color: white;
+}

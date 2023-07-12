@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-
 import { Form, Button } from "react-bootstrap";
-
 import { useMutation } from "@apollo/client";
-import { SAVE_GOAL } from "../utils/mutations";
+import { SAVE_GOAL } from "../../utils/mutations";
+import './CreateGoal.css'; // Import CreateGoal.css file
 
 const SaveGoalForm = () => {
-  const [ addGoal ] = useMutation(SAVE_GOAL);
+  const [ saveGoal ] = useMutation(SAVE_GOAL);
 
   const [goalFormData, setGoalFormData] = useState({
     name: "",
-    task: ["", "", "", "", ""],
+    tasks: [{name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}],
   });
   console.log(goalFormData);
 
@@ -23,13 +22,13 @@ const SaveGoalForm = () => {
         [name]: value,
       }));
     } else {
+      const updatedTasks = [...goalFormData.tasks];
       const taskIndex = Number(name.replace('Task', '')) - 1;
-      const updatedTasks = [...goalFormData.task];
-      updatedTasks[taskIndex] = value;
-  
+      updatedTasks[taskIndex] = {name: value};
+
       setGoalFormData((prevState) => ({
         ...prevState,
-        task: updatedTasks,
+        tasks: updatedTasks,
       }));
     }
   };  
@@ -38,14 +37,7 @@ const SaveGoalForm = () => {
     event.preventDefault();
   
     try {
-      const { data } = await addGoal({
-        variables: {
-          input: {
-            name: goalFormData.name,
-            task: goalFormData.task,
-          },
-        },
-      });
+      const { data } = await saveGoal({ variables: { ...goalFormData } });
       console.log(data, "line");
     } catch (error) {
       console.error("Error:", error);
@@ -53,7 +45,7 @@ const SaveGoalForm = () => {
   
     setGoalFormData({
       name: "",
-      task: ["", "", "", "", ""],
+      tasks: [{name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}],
     });
   };
   
@@ -80,7 +72,7 @@ const SaveGoalForm = () => {
             placeholder="Your Task"
             name='Task1'
             onChange={handleInputChange}
-            value={goalFormData.task[0]}
+            value={goalFormData.tasks[0].name}
             required
           />
         </Form.Group>
@@ -92,7 +84,7 @@ const SaveGoalForm = () => {
             placeholder="Your Task"
             name="Task2"
             onChange={handleInputChange}
-            value={goalFormData.task[1]}
+            value={goalFormData.tasks[1].name}
             required
           />
         </Form.Group>
@@ -104,7 +96,7 @@ const SaveGoalForm = () => {
             placeholder="Your Task"
             name="Task3"
             onChange={handleInputChange}
-            value={goalFormData.task[2]}
+            value={goalFormData.tasks[2].name}
             required
           />
         </Form.Group>
@@ -116,7 +108,7 @@ const SaveGoalForm = () => {
             placeholder="Your Task"
             name="Task4"
             onChange={handleInputChange}
-            value={goalFormData.task[3]}
+            value={goalFormData.tasks[3].name}
           />
         </Form.Group>
 
@@ -127,14 +119,14 @@ const SaveGoalForm = () => {
             placeholder="Your Task"
             name="Task5"
             onChange={handleInputChange}
-            value={goalFormData.task[4]}
+            value={goalFormData.tasks[4].name}
           />
         </Form.Group>
 
         <Button
           disabled={
             !goalFormData.name ||
-            !goalFormData.task.slice(0, 3).every((task) => task !== "")
+            !goalFormData.tasks.slice(0, 3).every((task) => task !== "")
           }
           type="submit"
           variant="success"
