@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Form, Button } from "react-bootstrap";
+import { Form, Button } from 'react-bootstrap';
 
-import { useMutation } from "@apollo/client";
-import { SAVE_GOAL } from "../utils/mutations";
+import { useMutation } from '@apollo/client';
+import { SAVE_GOAL } from '../utils/mutations';
 
 const SaveGoalForm = () => {
-  const [ saveGoal ] = useMutation(SAVE_GOAL);
+  const [saveGoal] = useMutation(SAVE_GOAL);
 
   const [goalFormData, setGoalFormData] = useState({
-    name: "",
-    tasks: [{name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}],
+    name: '',
+    tasks: [
+      { name: '' },
+      { name: '' },
+      { name: '' },
+      { name: '' },
+      { name: '' },
+    ],
   });
   console.log(goalFormData);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-  
+
     if (name === 'name') {
       setGoalFormData((prevState) => ({
         ...prevState,
@@ -25,31 +31,38 @@ const SaveGoalForm = () => {
     } else {
       const updatedTasks = [...goalFormData.tasks];
       const taskIndex = Number(name.replace('Task', '')) - 1;
-      updatedTasks[taskIndex] = {name: value};
+      updatedTasks[taskIndex] = { name: value };
 
       setGoalFormData((prevState) => ({
         ...prevState,
         tasks: updatedTasks,
       }));
     }
-  };  
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-  
+
     try {
-      const { data } = await saveGoal({ variables: { ...goalFormData } });
-      console.log(data, "line");
+      console.log('test');
+      console.log(goalFormData);
+      const { data } = await saveGoal({ variables: { input: goalFormData } });
+      console.log(data);
     } catch (error) {
-      console.error("Error:", error);
+      console.error('Error:', error);
     }
-  
+
     setGoalFormData({
-      name: "",
-      tasks: [{name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}],
+      name: '',
+      tasks: [
+        { name: '' },
+        { name: '' },
+        { name: '' },
+        { name: '' },
+        { name: '' },
+      ],
     });
   };
-  
 
   return (
     <>
@@ -71,7 +84,7 @@ const SaveGoalForm = () => {
           <Form.Control
             type="text"
             placeholder="Your Task"
-            name='Task1'
+            name="Task1"
             onChange={handleInputChange}
             value={goalFormData.tasks[0].name}
             required
@@ -127,7 +140,7 @@ const SaveGoalForm = () => {
         <Button
           disabled={
             !goalFormData.name ||
-            !goalFormData.tasks.slice(0, 3).every((task) => task !== "")
+            !goalFormData.tasks.slice(0, 3).every((task) => task !== '')
           }
           type="submit"
           variant="success"

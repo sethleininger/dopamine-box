@@ -37,13 +37,14 @@ const resolvers = {
       return { token, user };
     },
     saveGoal: async (_parent, { input }, context) => {
-      console.log(input);
+      // console.log(userId);
+      // console.log(input);
 
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { goals: input } },
-          { new: true, runValidators: true }
+          { new: true }
         );
       }
       throw new AuthenticationError('You must be logged in to save a book.');
@@ -75,10 +76,14 @@ const resolvers = {
           );
         } catch (error) {
           console.error(error);
-          throw new Error('An error occurred while updating the task completion status.');
+          throw new Error(
+            'An error occurred while updating the task completion status.'
+          );
         }
       }
-      throw new AuthenticationError('You must be logged in to update task completion.');
+      throw new AuthenticationError(
+        'You must be logged in to update task completion.'
+      );
     },
     updateStreak: async (_parent, { goalId }, context) => {
       if (context.user) {
