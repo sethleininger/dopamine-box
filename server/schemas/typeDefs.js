@@ -15,7 +15,7 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     tasks: [Task]
-    startDate: String!
+    startDate: String
     endDate: String
     streak: Int!
   }
@@ -40,7 +40,7 @@ const typeDefs = gql`
   input SaveGoalInput {
     _id: ID!
     tasks: [TaskInput]!
-    startDate: String!
+    startDate: String
     endDate: String
   }
 
