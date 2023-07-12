@@ -1,8 +1,10 @@
 import React from "react";
+
 //importing calendar component
-import MyCalendar from "../components/CalendarComponent/CalendarComponent";
+import MyCalendar from "../../components/CalendarComponent/CalendarComponent";
 
 // import styling 
+import './Calendar.css'; // Import Calendar.css file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 
