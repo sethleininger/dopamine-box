@@ -100,6 +100,21 @@ const resolvers = {
         );
       }
     },
+    resetStreak: async (_parent, { goalId }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          {
+            _id: context.user._id,
+            'goals._id': goalId,
+          },
+          { $set: { 'goals.$[goal].streak': 0 } },
+          {
+            new: true,
+            arrayFilters: [{ 'goal._id': goalId }],
+          }
+        );
+      }
+    },
     // added by zach for completed goals
     // completedGoal: async (_parent, { userId, _id }, context) => {
     //   // if (context.user) {
