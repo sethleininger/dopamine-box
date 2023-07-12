@@ -27,6 +27,23 @@
   padding: 5px;
 }
 
+.login form .alert {
+  background-color: var(--salmon-pink);
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 17px;
+  color: white;
+  text-shadow: 0 0 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.login form .alert button {
+  visibility: hidden;
+}
+
 
 .login form input {
   height: 50px;
