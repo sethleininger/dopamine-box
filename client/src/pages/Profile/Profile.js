@@ -16,6 +16,14 @@ import clickOne from "../../assets/sounds/gannonSound2.mp3";
 import modalStyles from "./modal";
 import starhappy from "../../assets/starhappy.png";
 import fire from "../../assets/fire.png";
+import trophy from "../../assets/trophy.png";
+import done from "../../assets/done.png";
+import bolts from "../../assets/bolts.png";
+import wow from "../../assets/wow.png";
+import createGoal from "../../assets/createGoal.png";
+import heart from "../../assets/heart.png";
+import box from "../../assets/box.svg";
+import star2 from "../../assets/star2.png";
 
 function Profile({ currentPage, handlePageChange }) {
   const [allChecked, setAllChecked] = useState(false);
@@ -31,6 +39,37 @@ function Profile({ currentPage, handlePageChange }) {
   const [removeGoal] = useMutation(REMOVE_GOAL);
 
   const [play] = useSound(clickOne); // Initialize the useSound hook
+
+  const [modalSaying, setModalSaying] = useState("");
+  const [modalImage, setModalImage] = useState("");
+
+  const modalSayings = [
+    "Congratulations on completing a task!",
+    "Great job! Keep up the good work!",
+    "You're making progress! Keep it up!",
+    "Well done! One step closer to your goal!",
+    "WOW!!! Look at you go!",
+    "Well done! One step closer to your goal!",
+    "You're doing amazing! Keep going!",
+    "You're crushing it! Don't stop now!",
+    "Every small step counts! You're doing great!",
+    "You're a superstar! Keep shining!",
+    "Believe in yourself! You've got this!",
+    "You're on fire! Keep up the momentum!",
+    "You're unstoppable! Keep pushing forward!",
+  ];
+  
+  const modalImages = [
+    trophy,
+    starhappy,
+    done,
+    bolts,
+    wow,
+    createGoal,
+    heart,
+    box,
+    star2
+  ]
 
   const [currentArrayIndex, setCurrentArrayIndex] = useState(0);
   const decreaseIndex = () => {
@@ -117,6 +156,10 @@ function Profile({ currentPage, handlePageChange }) {
       }
 
       play(); // Play the sound when the checkbox is clicked
+
+      const randomIndex = Math.floor(Math.random() * modalSayings.length);
+      setModalSaying(modalSayings[randomIndex]);
+      setModalImage(modalImages[randomIndex]);
     } catch (e) {
       console.error(e);
     }
@@ -249,6 +292,23 @@ function Profile({ currentPage, handlePageChange }) {
                   </div>
                 </Modal>
               </div>
+              <Modal
+                isOpen={modalSaying !== ""}
+                onRequestClose={() => {
+                  setModalSaying("")
+                  setModalImage("")
+                }}
+                contentLabel="Modal"
+                style={modalStyles}
+
+              >
+                <img className='modal-img' src={modalImage}/>
+                <p>{modalSaying}</p>
+                <button onClick={() => {
+                  setModalSaying("")
+                  setModalImage("")
+                }}>Close</button>
+              </Modal>
             </>
           )}
         </div>

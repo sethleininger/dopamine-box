@@ -13,14 +13,15 @@ const modalStyles = {
     borderRadius: "25px",
     boxShadow: "0 0 10px 5px var(--gray)",
     padding: "20px",
-    maxWidth: "600px",
+    maxWidth: "300px",
     width: "100%",
-    height: "fit-content",
+    height: "300px",
     backgroundColor: "var(--dutch-white)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
+    animation: "fadeIn 1s"
   },
   buttonContainer: {
     display: "flex",

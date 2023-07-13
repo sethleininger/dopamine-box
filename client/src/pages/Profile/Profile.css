@@ -127,3 +127,7 @@
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgb(135, 165, 158);
 }
+
+.modal-img {
+    animation: tada 3s;
+}
