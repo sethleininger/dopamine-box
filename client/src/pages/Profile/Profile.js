@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import './Profile.css';
+import React, { useEffect, useState } from "react";
+import "./Profile.css";
 
-import { useQuery, useMutation } from '@apollo/client';
-import { GET_ME } from '../../utils/queries';
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_ME } from "../../utils/queries";
 import {
   COMPLETE_TASK,
   UPDATE_STREAK,
   RESET_STREAK,
   DATES_COMPLETED,
-} from '../../utils/mutations';
+} from "../../utils/mutations";
 
-import useSound from 'use-sound';
-import clickOne from '../../assets/sounds/gannonSound2.mp3';
+import useSound from "use-sound";
+import clickOne from "../../assets/sounds/gannonSound2.mp3";
 
-import starhappy from '../../assets/starhappy.png';
-import fire from '../../assets/fire.png';
+import starhappy from "../../assets/starhappy.png";
+import fire from "../../assets/fire.png";
 
-function Profile() {
+function Profile({ currentPage, handlePageChange }) {
   const [allChecked, setAllChecked] = useState(false);
   const [isPastMidnight, setIsPastMignight] = useState(false);
 
@@ -88,7 +88,7 @@ function Profile() {
         console.log(datesCompletedData);
       }
       if (error) {
-        throw new Error('something went wrong!');
+        throw new Error("something went wrong!");
       }
 
       play(); // Play the sound when the checkbox is clicked
@@ -139,59 +139,73 @@ function Profile() {
   }
 
   return (
-    <div className="page_wrapper">
-      <div className="content-wrapper">
-        <h2>
-          <span>
-            <img src={starhappy} alt="" />
-          </span>
-          Welcome {userData.username}!
-        </h2>
-        <h3 className="streak">
-          You're
-          <span>
-            <img src={fire} alt="" />
-          </span>
-          {userData.goals[currentArrayIndex].streak}
-          <span>
-            <img src={fire} alt="" />
-          </span>
-          days into building your habit goal!
-        </h3>
-        <h3 className="current-goal">
-          Current Goal: {userData.goals[currentArrayIndex].name}
-        </h3>
-        <div className="task-box">
-          {userData.goals[currentArrayIndex].tasks.map(
-            ({ name, index, completed, _id }) => (
-              <div className="task" key={_id}>
-                <label>{name}</label>
-                <input
-                  className="task-checkbox"
-                  type="checkbox"
-                  name={name}
-                  checked={completed}
-                  onChange={() =>
-                    handleCheckboxChange(
-                      userData.goals[currentArrayIndex]._id,
-                      _id,
-                      completed
-                    )
-                  }
-                  disabled={completed}
-                />
+    <>
+      <div className="page_wrapper">
+        <div className="content-wrapper">
+          <h2>
+            <span>
+              <img src={starhappy} alt="" />
+            </span>
+            Welcome {userData.username}!
+          </h2>
+          {!userData.goals.length ? (
+            <>
+              <h2>Get started building your habit goals!</h2>
+              <button
+                onClick={(event) => handlePageChange("CreateGoal", event)}
+              >
+                Start
+              </button>
+            </>
+          ) : (
+            <>
+              <h3 className="streak">
+                You're
+                <span>
+                  <img src={fire} alt="" />
+                </span>
+                {userData.goals[currentArrayIndex].streak}
+                <span>
+                  <img src={fire} alt="" />
+                </span>
+                days into building your habit goal!
+              </h3>
+              <h3 className="current-goal">
+                Current Goal: {userData.goals[currentArrayIndex].name}
+              </h3>
+              <div className="task-box">
+                {userData.goals[currentArrayIndex].tasks.map(
+                  ({ name, index, completed, _id }) => (
+                    <div className="task" key={_id}>
+                      <label>{name}</label>
+                      <input
+                        className="task-checkbox"
+                        type="checkbox"
+                        name={name}
+                        checked={completed}
+                        onChange={() =>
+                          handleCheckboxChange(
+                            userData.goals[currentArrayIndex]._id,
+                            _id,
+                            completed
+                          )
+                        }
+                        disabled={completed}
+                      />
+                    </div>
+                  )
+                )}
+                <div className="button-group">
+                  <button onClick={decreaseIndex}>Prev</button>
+                  <button onClick={resetTasks}>Reset</button>
+                  <button onClick={increaseIndex}>Next</button>
+                </div>
               </div>
-            )
+            </>
           )}
-          <div className="button-group">
-            <button onClick={decreaseIndex}>Prev</button>
-            <button onClick={resetTasks}>Reset</button>
-            <button onClick={increaseIndex}>Next</button>
-          </div>
-
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

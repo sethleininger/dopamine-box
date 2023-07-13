@@ -44,7 +44,12 @@ function App() {
       return <Welcome />;
     }
     if (currentPage === "Profile") {
-      return <Profile />;
+      return (
+        <Profile
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+        />
+      );
     }
     if (currentPage === "CreateGoal") {
       return <SaveGoalForm />;
