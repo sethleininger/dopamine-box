@@ -10,20 +10,19 @@ const localizer = dayjsLocalizer(dayjs);
 
 const MyCalendar = ({ myEventsList, ...props }) => {
   const events = myEventsList.map((goal) => {
-    // const startDateDayjs = dayjs.(goal.startDate).format('YYYY-MM-DD');
-    // const startDate = new Date(goal.startDate);
-
     const start = dayjs().subtract(goal.streak, 'day').startOf('day').toDate();
     const end = dayjs().endOf('day').toDate();
-
+  
     return {
       id: goal._id,
       title: goal.name,
-      start: start, 
+      start: start,
       end: end
     };
   });
+  
 
+  console.log(events);
   
   return (
     <div className="calendar-comp">

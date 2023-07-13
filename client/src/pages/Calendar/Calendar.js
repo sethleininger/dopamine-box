@@ -58,7 +58,10 @@ export default function CalendarPage() {
         <div className="key">
           <ul>
             <li>
-              <FontAwesomeIcon icon={faBoxOpen} color="#BAE3DA" /> Completed
+              <h3>Key</h3>
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faBoxOpen} color="#BAE3DA" /> Streak
             </li>
             <li>
               <FontAwesomeIcon icon={faBoxOpen} color="#FAEDCB" /> Today
