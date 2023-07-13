@@ -23,6 +23,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
   const [playThree] = useSound(relaxClickThree);
   const [playFour] = useSound(relaxClickFour);
   // const [playFive] = useSound(relaxClickFive);
+  const [hideInstallButton, setHideInstallButton] = useState(false);
   const [installPrompt, setInstallPrompt] = useState(null);
   useEffect(() => {
     // Event listener for beforeinstallprompt event
@@ -42,17 +43,6 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
   }, []);
   const handleClickOne = (pageName, event) => {
     event.preventDefault();
-    if (installPrompt) {
-      installPrompt.prompt(); // Show the install prompt
-      installPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === "accepted") {
-          console.log("User accepted the install prompt.");
-        } else {
-          console.log("User dismissed the install prompt.");
-        }
-        setInstallPrompt(null); // Reset the install prompt variable
-      });
-    }
     handlePageChange(pageName);
     playOne(); // Play the sound on click
   };
@@ -69,6 +59,21 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
   const handleClickFour = (pageName, event) => {
     event.preventDefault();
     handlePageChange(pageName);
+    playFour(); // Play the sound on click
+  };
+  const handleClickInstall = (pageName, event) => {
+    if (installPrompt) {
+      installPrompt.prompt(); // Show the install prompt
+      installPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === "accepted") {
+          setHideInstallButton(true);
+        } else {
+          console.log("User dismissed the install prompt.");
+        }
+        setInstallPrompt(null); // Reset the install prompt variable
+      });
+    }
+
     playFour(); // Play the sound on click
   };
 
@@ -125,7 +130,8 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
               href="#welcome"
               role="button"
               id="buttonInstall"
-              onClick={(event) => handleClickOne("Welcome", event)}
+              onClick={(event) => handleClickInstall("Welcome", event)}
+              className={hideInstallButton ? "hidden" : ""}
             >
               <span className="icon">
                 <img src={install} alt="" />
@@ -155,6 +161,19 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
             </span>
             <span className="pageName">Home</span>
           </a>
+          {/* INSTALL BUTTON FOR WHEN NOT SIGNED IN */}
+          {/* <a
+            href="#welcome"
+            role="button"
+            id="buttonInstall"
+            onClick={(event) => handleClickInstall("Welcome", event)}
+            className={hideInstallButton ? "hidden" : ""}
+          >
+            <span className="icon">
+              <img src={install} alt="" />
+            </span>
+            <span className="pageName">Install</span>
+          </a> */}
           <a
             href="#authform"
             onClick={(event) => handleClickTwo("AuthForm", event)}

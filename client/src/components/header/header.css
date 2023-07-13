@@ -53,3 +53,7 @@ a:hover img {
 a:hover .pageName {
   visibility: visible;
 }
+
+.hidden{
+  display: none;
+}
