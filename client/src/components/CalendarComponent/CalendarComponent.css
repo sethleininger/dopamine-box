@@ -7,4 +7,103 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
 }
+
+.calendar-comp .rbc-calendar {
+  width: 600px;
+}
+
+.calendar-comp .rbc-calendar .rbc-toolbar {
+  display: flex;
+  height: 30px;
+  position: relative;
+}
+
+.calendar-comp .rbc-calendar .rbc-toolbar span:first-child {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  width: 250px;
+}
+
+.calendar-comp .rbc-calendar .rbc-toolbar span:first-child button {
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--salmon-pink);
+  width: 70px;
+}
+
+.calendar-comp .rbc-calendar .rbc-toolbar span:first-child button:first-child {
+  background-color: var(--dutch-white);
+}
+
+.calendar-comp .rbc-calendar .rbc-toolbar span:first-child button:nth-child(3) {
+  background-color: var(--mint-green);
+}
+
+.calendar-comp .rbc-calendar .rbc-toolbar .rbc-toolbar-label {
+  font-size: 30px;
+  font-weight: 400;
+  margin-left: 20px;
+  position: absolute;
+  text-shadow: 0px 3px #e0bda4;
+  top: -50px;
+}
+
+.calendar-comp .rbc-calendar .rbc-toolbar span:nth-child(3) {
+  visibility: hidden;
+}
+
+.calendar-comp .rbc-calendar .rbc-month-view {
+  border: none;
+  
+}
+
+.calendar-comp .rbc-calendar .rbc-month-view .rbc-month-header {
+  border: none;
+  /* background-color: #e0bda4; */
+  font-weight: 300;
+}
+
+.calendar-comp .rbc-calendar .rbc-month-view .rbc-month-header .rbc-header {
+  font-size: 17px;
+  font-weight: 300;
+  border-radius: 10px;
+  border: none;
+}
+
+.calendar-comp .rbc-calendar .rbc-month-view .rbc-row-bg .rbc-day-bg {
+  border: none;
+  background-color: #e0bda4;
+  margin: 3px;
+  border-radius: 10px;
+}
+
+.rbc-month-row + .rbc-month-row {
+  border-top: none;
+}
+
+.calendar-comp .rbc-calendar .rbc-month-view .rbc-month-row .rbc-row-bg .rbc-off-range-bg {
+  background-color: #ccae98;
+}
+
+.calendar-comp .rbc-calendar .rbc-month-view .rbc-month-row .rbc-row-bg .rbc-today {
+  background-color: var(--dutch-white);
+}
+
+.rbc-button-link {
+  border: none;
+  box-shadow: none;
+}
+
+.rbc-button-link:hover {
+  box-shadow: none;
+  translate: 0 0;
+}
+
+

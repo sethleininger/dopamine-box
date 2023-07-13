@@ -8,6 +8,27 @@
   height: 1000px;
 }
 
+.calendar-page .calendar-title {
+  background-color: var(--columbia-blue);
+  width: 500px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px var(--gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30px;
+  left: 500px;
+}
+
+.calendar-page .calendar-title h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  text-shadow: 1px 5px 3px var(--uranian-blue);
+}
+
 .calendar-page .key-streak-info {
   display: flex;
   flex-direction: column;
@@ -92,4 +113,22 @@
 
 .calendar-page .key-streak-info .streak .streak-container img {
   height: 50px;
+}
+
+@media screen and (max-width: 1300px) {
+  .calendar-page {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    padding-top: 350px;
+  }
+
+  .calendar-page .key-streak-info {
+    translate: 0 150px;
+  }
+
+  .calendar-page .calendar-title {
+    left: 20%;
+  }
+
 }
