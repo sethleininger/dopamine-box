@@ -66,7 +66,6 @@ function Profile({ currentPage, handlePageChange }) {
     wow,
     createGoal,
     heart,
-    box,
     star2
   ]
 
