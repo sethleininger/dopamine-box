@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
-import { useQuery } from "@apollo/client";
-import { GET_ME } from "../../utils/queries";
+import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
+import { useQuery } from '@apollo/client';
+import { GET_ME } from '../../utils/queries';
 //importing calendar component
-import MyCalendar from "../../components/CalendarComponent/CalendarComponent";
-// import styling 
-import "./Calendar.css";
+import MyCalendar from '../../components/CalendarComponent/CalendarComponent';
+// import styling
+import './Calendar.css';
 
 export default function CalendarPage() {
   const [yourGoalList, setYourGoalList] = useState([]);
   const { loading, data } = useQuery(GET_ME);
-  console.log(data);
+  // console.log(data);
   const userData = data?.me || {};
-  console.log(userData);
+  // console.log(userData);
+  // console.log(userData.goals[0].datesCompleted[0]);
+  // const date = new Date(userData.goals[0].datesCompleted[0]);
+  // console.log(date);
 
   // useEffect(() => {
   //   if (data) {
@@ -34,7 +37,7 @@ export default function CalendarPage() {
 
   const getColorByIndex = (index) => {
     // Define an array of colors
-    const colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#00FFFF"];
+    const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#00FFFF'];
     // Return the color based on the index
     return colors[index % colors.length];
   };
@@ -63,8 +66,8 @@ export default function CalendarPage() {
         </ul>
       </div>
 
-     {/* Streak section */}
-     <div className="streak">
+      {/* Streak section */}
+      <div className="streak">
         <h2>{userData.username}'s STREAKS</h2>
         {}
       </div>
@@ -75,4 +78,4 @@ export default function CalendarPage() {
       </div>
     </main>
   );
-};
+}

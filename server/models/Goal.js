@@ -10,17 +10,17 @@ const goalSchema = new Schema({
     required: true,
   },
   startDate: {
-    type: Date,
+    type: String,
     default: Date.now,
   },
   endDate: {
-    type: Date,
+    type: String,
   },
   streak: {
     type: Number,
     default: 0,
   },
-  datesCompleted: [Date],
+  datesCompleted: [String],
 });
 
 module.exports = goalSchema;

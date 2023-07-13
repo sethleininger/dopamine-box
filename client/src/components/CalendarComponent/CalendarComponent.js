@@ -1,24 +1,26 @@
-import React from "react";
-import { Calendar } from "react-big-calendar";
-import dayjs from "dayjs";
-import dayjsLocalizer from "react-big-calendar/lib/localizers/dayjs";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import "./CalendarComponent.css";
+import React from 'react';
+import { Calendar } from 'react-big-calendar';
+import dayjs from 'dayjs';
+import dayjsLocalizer from 'react-big-calendar/lib/localizers/dayjs';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import './CalendarComponent.css';
 
 const localizer = dayjsLocalizer(dayjs);
 
 const MyCalendar = ({ myEventsList, ...props }) => {
   const events = myEventsList.map((goal) => {
-    const startDateDayjs = dayjs.unix(goal.startDate).format('YYYY-MM-DD');
-    // console.log(goal.startDate);
-    // const startDate = new Date(goal.startDate);
-    console.log(startDateDayjs);
+    // const startDateDayjs = dayjs.(goal.startDate).format('YYYY-MM-DD');
+    console.log(goal.startDate);
+    const startDate = new Date(goal.startDate);
+    console.log(startDate);
 
     return {
       id: goal._id,
       title: goal.name,
-      start: startDateDayjs || null,
-      end: startDateDayjs ? new Date(startDateDayjs.getTime() + 7 * 24 * 60 * 60 * 1000) : null,
+      start: goal.startDate || null,
+      end: goal.startDate,
+      // ? new Date(goal.startDate.getTime() + 7 * 24 * 60 * 60 * 1000)
+      // : null,
     };
   });
 
@@ -34,6 +36,5 @@ const MyCalendar = ({ myEventsList, ...props }) => {
     </div>
   );
 };
-
 
 export default MyCalendar;
