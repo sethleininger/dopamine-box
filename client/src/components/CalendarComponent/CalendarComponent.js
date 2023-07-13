@@ -12,7 +12,7 @@ const MyCalendar = ({ myEventsList, ...props }) => {
   // this will only show the goal with the longest streak
   const events = myEventsList.map((goal) => {
     
-    const start = dayjs().subtract(goal.streak, 'day').startOf('day').toDate();
+    const start = dayjs().subtract((goal.streak -1), 'day').startOf('day').toDate();
     const end = dayjs().endOf('day').toDate();
   
     return {
