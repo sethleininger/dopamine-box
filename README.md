@@ -31,7 +31,7 @@
   
   <!-- ABOUT THE PROJECT -->
   ## About The Project
-  ### Project Image  
+  ### Project Images  
   ![product-screenshot](https://github.com/sethleininger/dopamine-box/blob/main/images/welcome.png)<br>
   ![product-screenshot](https://github.com/sethleininger/dopamine-box/blob/main/images/login.png)<br>
   ![product-screenshot](https://github.com/sethleininger/dopamine-box/blob/main/images/goal.png)<br>
@@ -85,7 +85,7 @@ npm install npm@latest -g
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
   
   ## Deployed Site
-  ![Dopamine-Box](https://dopamine-box-178888939ab3.herokuapp.com)<br>
+  [Dopamine-Box](https://dopamine-box-178888939ab3.herokuapp.com)<br>
   
   <!-- CONTRIBUTING -->
   ## Contributing
