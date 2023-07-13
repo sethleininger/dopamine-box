@@ -35,6 +35,7 @@
     "workbox-routing": "^6.6.0",
     "workbox-strategies": "^6.6.0",
     "workbox-streams": "^6.6.0",
+    "sass": "^1.63.3",
     "dayjs": "^1.11.9",
     "dayjs-ext": "^2.2.0"
   },

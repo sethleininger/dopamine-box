@@ -1,0 +1,95 @@
+.calendar-page {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 1000px;
+}
+
+.calendar-page .key-streak-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+
+.calendar-page .key-streak-info .key {
+  background-color: var(--mint-green);
+  width: 300px;
+  height: 300px;
+  border-radius: 30%;
+  box-shadow: 0 0 10px 5px var(--gray);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  translate: 50px -50px;
+}
+
+.calendar-page .key-streak-info .key li {
+  list-style: none;
+  font-size: 24px;
+  font-weight: 300;
+  padding-left: 0;
+}
+
+.calendar-page .key-streak-info .streak {
+  font-size: 16px;
+  font-weight: 300;
+  width: 400px;
+  height: 400px;
+  translate: -50px 0px;
+  background-color: var(--periwinkle);
+  border-radius: 30%;
+  box-shadow: 0 0 10px 10px var(--gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.calendar-page .key-streak-info .streak h2 {
+  width: 80%;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  translate: 0 20px;
+}
+
+.calendar-page .key-streak-info .streak .streak-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 60%;
+  translate: 0 -20px;
+}
+
+.calendar-page .key-streak-info .streak .streak-container .goal-streak {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.calendar-page .key-streak-info .streak .streak-container .goal-streak h3 {
+  font-size: 20px;
+  font-weight: 300;
+  
+}
+
+.calendar-page .key-streak-info .streak .streak-container .goal-streak div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+}
+
+.calendar-page .key-streak-info .streak .streak-container img {
+  height: 50px;
+}

@@ -70,9 +70,10 @@ const SaveGoalForm = () => {
   return (
     <div className="container">
       <div className="form-container">
+        <h1 className="form-title">Create a New Goal!</h1>
         <Form onSubmit={handleFormSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="goalName" className="label-text">Goal Name</Form.Label>
+            <Form.Label htmlFor="goalName" className="label-text">Goal Name:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Name of Goal"
@@ -84,7 +85,7 @@ const SaveGoalForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="Task1" className="label-text">Task 1</Form.Label>
+            <Form.Label htmlFor="Task1" className="label-text">Task 1:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Your Task"
@@ -96,7 +97,7 @@ const SaveGoalForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="Task2" className="label-text">Task 2</Form.Label>
+            <Form.Label htmlFor="Task2" className="label-text">Task 2:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Your Task"
@@ -108,7 +109,7 @@ const SaveGoalForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="Task3" className="label-text">Task 3</Form.Label>
+            <Form.Label htmlFor="Task3" className="label-text">Task 3:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Your Task"
@@ -120,7 +121,7 @@ const SaveGoalForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="Task4" className="label-text">Task 4</Form.Label>
+            <Form.Label htmlFor="Task4" className="label-text">Task 4:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Your Task"
@@ -131,7 +132,7 @@ const SaveGoalForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="Task5" className="label-text">Task 5</Form.Label>
+            <Form.Label htmlFor="Task5" className="label-text">Task 5:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Your Task"

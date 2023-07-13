@@ -7,16 +7,63 @@
 }
 
 .form-container {
-    width: 600px;
-    height: 500px;
+    width: 700px;
+    height: 700px;
     background-color: var(--dutch-white);
-    border-radius: 25%;
-    margin-top: 50px;
+    border-radius: 30%;
+    margin-top: 80px;
     box-shadow: 0 0 10px 5px var(--gray);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+
+.form-container h1 {
+    font-size: 54px;
+    font-weight: 400;
+    text-shadow: 1px 5px 5px rgb(149, 182, 175);
+    margin-top: 60px;
+
+}
+
+.form-container form {
+    height: 70%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    padding-bottom: 20px;
+}
+
+.form-container form div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-container form div:first-child {
+    font-size: 32px;
+}
+
+.form-container form div input {
+    height: 40px;
+    width: 300px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(214, 203, 173);
+    box-shadow: 2px 2px 5px var(--gray);
+    text-align: center;
+}
+
+
+.form-container form div input:focus {
+    outline: none;
+    box-shadow: 2px 2px 10px 5px var(--gray);
+    border: 2px dotted var(--periwinkle);
 }
 
 .form-container h2 {
@@ -109,21 +156,21 @@
 
 .form-container button[type="submit"] {
     background-color: var(--mint-green);
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
     color: black;
-    font-size: 20px;
-    font-weight: bold;
     padding: 15px 60px; /* for button length */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; /* width: 100% to make the button expand to container width */
+    width: 190px;
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .form-container button[type="submit"]:hover {
-    background-color: #91cbbf; /* darker shade of mint-green */
-    transform: scale(1.05); /* Increase size by 5% upon hover */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    /* background-color: #91cbbf; darker shade of mint-green */
+    /* transform: scale(1.05); Increase size by 5% upon hover */
+    box-shadow: 0 0 20px var(--gray);
 }
