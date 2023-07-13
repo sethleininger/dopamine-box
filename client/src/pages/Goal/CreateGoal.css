@@ -49,6 +49,11 @@
     font-size: 32px;
 }
 
+.form-container form div:first-child input {
+    height: 50px;
+    border: solid var(--periwinkle);
+}
+
 .form-container form div input {
     height: 40px;
     width: 300px;
