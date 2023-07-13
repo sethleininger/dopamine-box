@@ -60,7 +60,7 @@
     width: 100%;
     background-color: var(--mint-green);
     height: 450px;
-    bottom: 20px;
+    bottom: -10px;
     border-radius: 50px; 
     box-shadow: 0 0 20px var(--gray);
     display: flex;

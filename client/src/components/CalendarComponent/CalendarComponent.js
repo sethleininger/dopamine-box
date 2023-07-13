@@ -11,6 +11,9 @@ const localizer = dayjsLocalizer(dayjs);
 const MyCalendar = ({ myEventsList, ...props }) => {
   // this will only show the goal with the longest streak
   const events = myEventsList.map((goal) => {
+    if (goal.streak === 0) {
+      return;
+    }
     
     const start = dayjs().subtract((goal.streak -1), 'day').startOf('day').toDate();
     const end = dayjs().endOf('day').toDate();
