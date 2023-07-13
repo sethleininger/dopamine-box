@@ -1,23 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
+import { useQuery } from "@apollo/client";
+import { GET_ME } from "../../utils/queries";
 //importing calendar component
 import MyCalendar from "../../components/CalendarComponent/CalendarComponent";
 // import styling 
 import "./Calendar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 
 export default function CalendarPage() {
-  // Your array of goal objects
-  const yourGoalList = [
-    // Example goal object:
-    {
-      _id: "goalId",
-      name: "Sample Goal",
-      startDate: "2023-07-13", // Replace with actual start date
-    }
+  const [yourGoalList, setYourGoalList] = useState([]);
+  const { loading, data } = useQuery(GET_ME);
+  console.log(data);
+  const userData = data?.me || {};
+  console.log(userData);
 
-    // Add more goal objects here as needed
-  ];
+  // useEffect(() => {
+  //   if (data) {
+  //     setYourGoalList(data.me.goals);
+  //   }
+  // }, [data]);
+
+  useEffect(() => {
+    if (data) {
+      setYourGoalList(
+        data.me.goals.map((goal, index) => ({
+          ...goal,
+          color: getColorByIndex(index),
+        }))
+      );
+    }
+  }, [data]);
+
+  const getColorByIndex = (index) => {
+    // Define an array of colors
+    const colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#00FFFF"];
+    // Return the color based on the index
+    return colors[index % colors.length];
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <main className="calender-page">
@@ -39,8 +63,11 @@ export default function CalendarPage() {
         </ul>
       </div>
 
-      {/* Streak section */}
-      <div className="streak">{/* streak info here */}</div>
+     {/* Streak section */}
+     <div className="streak">
+        <h2>{userData.username}'s STREAKS</h2>
+        {}
+      </div>
 
       {/* Calendar section */}
       <div>
