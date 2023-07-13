@@ -92,6 +92,9 @@ export default function CalendarPage() {
 
       {/* Calendar section */}
       <div>
+        <div className='calendar-title'> 
+          <h2>{userData.username}'s Calendar</h2>
+        </div>
         <MyCalendar myEventsList={yourGoalList} />
       </div>
     </main>
