@@ -32,11 +32,11 @@
   <!-- ABOUT THE PROJECT -->
   ## About The Project
   ### Project Image  
-  ![product-screenshot](https://github.com/GgeoffG/dopamine-box/blob/main/images/welcome.png)<br>
-  ![product-screenshot](https://github.com/GgeoffG/dopamine-box/blob/main/images/login.png)<br>
-  ![product-screenshot](https://github.com/GgeoffG/dopamine-box/blob/main/images/goal.png)<br>
-  ![product-screenshot](https://github.com/GgeoffG/dopamine-box/blob/main/images/profile.png)<br>
-  ![product-screenshot](https://github.com/GgeoffG/dopamine-box/blob/main/images/calendar.png)<br>
+  ![product-screenshot](https://github.com/sethleininger/dopamine-box/blob/main/images/welcome.png)<br>
+  ![product-screenshot](https://github.com/sethleininger/dopamine-box/blob/main/images/login.png)<br>
+  ![product-screenshot](https://github.com/sethleininger/dopamine-box/blob/main/images/goal.png)<br>
+  ![product-screenshot](https://github.com/sethleininger/dopamine-box/blob/main/images/profile.png)<br>
+  ![product-screenshot](https://github.com/sethleininger/dopamine-box/blob/main/images/calendar.png)<br>
   Dopamine-Box is a progressive web application designed to help users create habit goals and break down tasks that will help them accomplish those goals. Not only does it give you an easy way to track your goals, it comes with a suite of sound files designed to make interacting with your tasks rewarding as you check them off during completion. It also uses a streak tracker to encourage daily usage and to see how much progress you've made toward building your better habits.
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
   
