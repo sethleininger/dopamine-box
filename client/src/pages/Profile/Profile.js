@@ -22,7 +22,6 @@ import bolts from "../../assets/bolts.png";
 import wow from "../../assets/wow.png";
 import createGoal from "../../assets/createGoal.png";
 import heart from "../../assets/heart.png";
-import box from "../../assets/box.svg";
 import star2 from "../../assets/star2.png";
 
 function Profile({ currentPage, handlePageChange }) {
