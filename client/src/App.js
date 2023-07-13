@@ -52,7 +52,12 @@ function App() {
       );
     }
     if (currentPage === "CreateGoal") {
-      return <SaveGoalForm />;
+      return (
+        <SaveGoalForm
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+        />
+      );
     }
     if (currentPage === "CalendarPage") {
       return <CalendarPage />;

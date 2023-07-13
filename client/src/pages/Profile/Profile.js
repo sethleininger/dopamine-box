@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
-
+import Modal from "react-modal";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
 import {
@@ -8,18 +8,19 @@ import {
   UPDATE_STREAK,
   RESET_STREAK,
   DATES_COMPLETED,
+  REMOVE_GOAL,
 } from "../../utils/mutations";
 
 import useSound from "use-sound";
 import clickOne from "../../assets/sounds/gannonSound2.mp3";
-
+import modalStyles from "./modal";
 import starhappy from "../../assets/starhappy.png";
 import fire from "../../assets/fire.png";
 
 function Profile({ currentPage, handlePageChange }) {
   const [allChecked, setAllChecked] = useState(false);
   const [isPastMidnight, setIsPastMignight] = useState(false);
-
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || {};
 
@@ -27,6 +28,7 @@ function Profile({ currentPage, handlePageChange }) {
   const [updateStreak] = useMutation(UPDATE_STREAK);
   const [resetStreak] = useMutation(RESET_STREAK);
   const [datesCompleted] = useMutation(DATES_COMPLETED);
+  const [removeGoal] = useMutation(REMOVE_GOAL);
 
   const [play] = useSound(clickOne); // Initialize the useSound hook
 
@@ -45,6 +47,29 @@ function Profile({ currentPage, handlePageChange }) {
     } else if (currentArrayIndex < userData.goals.length - 1) {
       setCurrentArrayIndex(currentArrayIndex + 1);
       console.log(currentArrayIndex);
+    }
+  };
+
+  const openDeleteAlert = () => {
+    setShowDeleteAlert(true);
+  };
+
+  const closeDeleteAlert = () => {
+    setShowDeleteAlert(false);
+  };
+
+  const deleteGoal = async () => {
+    try {
+      const goalId = userData.goals[currentArrayIndex]._id;
+      console.log(goalId);
+      setCurrentArrayIndex(0);
+      await removeGoal({
+        variables: { _id: goalId },
+      });
+
+      closeDeleteAlert();
+    } catch (e) {
+      console.error(e);
     }
   };
 
@@ -200,6 +225,29 @@ function Profile({ currentPage, handlePageChange }) {
                   <button onClick={resetTasks}>Reset</button>
                   <button onClick={increaseIndex}>Next</button>
                 </div>
+                <button onClick={openDeleteAlert}>Delete Goal</button>
+
+                {/* Delete Confirmation Modal */}
+                <Modal
+                  isOpen={showDeleteAlert}
+                  onRequestClose={closeDeleteAlert}
+                  style={modalStyles}
+                  contentLabel="Delete Confirmation"
+                >
+                  <h2>Are you Sure?</h2>
+                  <p>Deleting a goal will lose your streak data!</p>
+                  <div style={modalStyles.buttonContainer}>
+                    <button style={modalStyles.button} onClick={deleteGoal}>
+                      Delete
+                    </button>
+                    <button
+                      style={modalStyles.button}
+                      onClick={closeDeleteAlert}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </Modal>
               </div>
             </>
           )}
