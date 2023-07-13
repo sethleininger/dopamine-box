@@ -52,17 +52,17 @@
 .content-wrapper .current-goal {
     font-size: 30px;
     font-weight: 400;
-    translate: 0 -360px;
+    translate: 0 -380px;
 }
 
 .content-wrapper .task-box {
     position: absolute;
     width: 100%;
     background-color: var(--mint-green);
-    height: 400px;
+    height: 450px;
     bottom: 20px;
     border-radius: 50px; 
-    /* box-shadow: 0 0 5px 3px var(--gray); */
+    box-shadow: 0 0 20px var(--gray);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -120,10 +120,14 @@
     justify-content: space-between;
 }
 
-.content-wrapper .task-box .button-group button {
+.content-wrapper .task-box button {
     background-color: var(--peach);
     width: 80px;
     height: 40px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgb(135, 165, 158);
+}
+
+.modal-img {
+    animation: tada 3s;
 }
