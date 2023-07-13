@@ -94,6 +94,7 @@
   margin: 0;
   padding: 0;
   translate: 0 20px;
+  text-align: center;
 }
 
 .calendar-page .key-streak-info .streak .streak-container {
@@ -115,7 +116,7 @@
 }
 
 .calendar-page .key-streak-info .streak .streak-container .goal-streak h3 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 300;
   
 }

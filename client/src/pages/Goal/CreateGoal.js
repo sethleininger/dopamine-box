@@ -6,6 +6,8 @@ import "./CreateGoal.css"; // Import CreateGoal.css file
 import Modal from "react-modal";
 import modalStyles from "../Profile/modal";
 
+import thumbsUp from "../../assets/thumbsUp.png";
+
 // import useSound from "use-sound";
 // import signinClick from "../../assets/sounds/signinClick.mp3"
 // const [play] = useSound(signinClick);
@@ -186,6 +188,9 @@ const SaveGoalForm = ({ handlePageChange }) => {
           contentLabel="Create Confirmation"
         >
           <h2>Goal Created!</h2>
+          <div>
+            <img className="createGoal-modal" src={thumbsUp} alt="" />
+          </div>
           <div style={modalStyles.buttonContainer}>
             <button onClick={closeCreateAlert}>Awesome!</button>
           </div>

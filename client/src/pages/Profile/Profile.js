@@ -23,6 +23,7 @@ import wow from "../../assets/wow.png";
 import createGoal from "../../assets/createGoal.png";
 import heart from "../../assets/heart.png";
 import star2 from "../../assets/star2.png";
+import rainbow from "../../assets/rainbow.png";
 
 function Profile({ currentPage, handlePageChange }) {
   const [allChecked, setAllChecked] = useState(false);
@@ -66,7 +67,12 @@ function Profile({ currentPage, handlePageChange }) {
     wow,
     createGoal,
     heart,
-    star2
+    star2,
+    starhappy,
+    done,
+    wow,
+    trophy,
+    rainbow
   ]
 
   const [currentArrayIndex, setCurrentArrayIndex] = useState(0);
