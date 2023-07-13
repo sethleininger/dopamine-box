@@ -23,7 +23,7 @@
 .content-wrapper h2 {
     font-size: 54px;
     font-weight: 400;
-    text-shadow: 1px 5px 5px var(--salmon-pink);
+    text-shadow: 1px 5px 5px rgb(149, 182, 175);
     translate: 0 -60px;
 }
 
