@@ -1,4 +1,5 @@
-require("dotenv").config();
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, "../../.env") });
 const jwt = require("jsonwebtoken");
 const secret = process.env.SESS_SECRET;
 // console.log(process);
