@@ -9,7 +9,9 @@ import './CalendarComponent.css';
 const localizer = dayjsLocalizer(dayjs);
 
 const MyCalendar = ({ myEventsList, ...props }) => {
+  // this will only show the goal with the longest streak
   const events = myEventsList.map((goal) => {
+    
     const start = dayjs().subtract(goal.streak, 'day').startOf('day').toDate();
     const end = dayjs().endOf('day').toDate();
   
@@ -21,6 +23,22 @@ const MyCalendar = ({ myEventsList, ...props }) => {
     };
   });
   
+  // this will show all the individual dates that all the tasks in a goal were completed
+  // const events = myEventsList.flatMap((goal) => {
+  //   return goal.datesCompleted.map((date) => {
+  //     const start = dayjs(date).startOf('day').toDate();
+  //     const end = dayjs(date).endOf('day').toDate();
+  //     console.log(start, end);
+
+  //     return {
+  //       id: goal._id,
+  //       title: goal.name,
+  //       start: start,
+  //       end: end,
+  //       className: 'goal-${goal._id}' 
+  //     };
+  //   });
+  // });
 
   console.log(events);
   
@@ -32,6 +50,12 @@ const MyCalendar = ({ myEventsList, ...props }) => {
         startAccessor="start"
         endAccessor="end"
         style={{ height: 500 }}
+        // eventPropGetter={(event) => ({
+        //   className: `goal-${event.id}`,
+        //   style : {
+        //     backgroundColor: event.color,
+        //   }
+        // })}
       />
     </div>
   );
