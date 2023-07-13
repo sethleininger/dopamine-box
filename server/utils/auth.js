@@ -1,8 +1,9 @@
+// const path = require("path");
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-// FIXED TO ACCEPT DOTENV
-const secret = 'process.env.SECRET';
-
+const secret = process.env.SESS_SECRET;
+// console.log(process);
+// console.log(secret);
 const expiration = '2h';
 
 module.exports = {
