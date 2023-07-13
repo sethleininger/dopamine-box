@@ -13,6 +13,8 @@
     "@testing-library/user-event": "^7.1.2",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.3",
+    "dayjs": "^1.11.9",
+    "dayjs-ext": "^2.2.0",
     "graphql": "^15.4.0",
     "jwt-decode": "^2.2.0",
     "react": "^16.13.1",
@@ -20,8 +22,10 @@
     "react-bootstrap": "^2.7.0",
     "react-calendar": "^4.3.0",
     "react-dom": "^16.13.1",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.1",
+    "sass": "^1.63.3",
     "use-sound": "^4.0.1",
     "workbox-background-sync": "^6.6.0",
     "workbox-broadcast-update": "^6.6.0",
@@ -34,10 +38,7 @@
     "workbox-range-requests": "^6.6.0",
     "workbox-routing": "^6.6.0",
     "workbox-strategies": "^6.6.0",
-    "workbox-streams": "^6.6.0",
-    "sass": "^1.63.3",
-    "dayjs": "^1.11.9",
-    "dayjs-ext": "^2.2.0"
+    "workbox-streams": "^6.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
