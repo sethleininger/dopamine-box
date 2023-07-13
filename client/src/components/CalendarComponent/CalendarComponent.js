@@ -3,7 +3,7 @@ import { Calendar } from 'react-big-calendar';
 import dayjs from 'dayjs';
 import dayjsLocalizer from 'react-big-calendar/lib/localizers/dayjs';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-// @import 'react-big-calendar/lib/sass/styles';
+// import 'react-big-calendar/lib/sass/styles';
 import './CalendarComponent.css';
 
 const localizer = dayjsLocalizer(dayjs);
