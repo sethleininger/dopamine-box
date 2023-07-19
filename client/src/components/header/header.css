@@ -23,7 +23,7 @@ a {
   text-decoration: none;
   padding: 5px 10px;
   color: black;
-  margin-right: 10px;
+  margin-left: 10px;
   font-size: 1.2rem;
   position: relative;
 }
@@ -73,10 +73,8 @@ a:hover .pageName {
   a img {
     width: 50px;
     height: 50px;
-    position: absolute;
     top: -10px;
-    left: 0;
-    /* visibility: hidden; */
+    left: 20px;
   }
 
   a:hover img {
