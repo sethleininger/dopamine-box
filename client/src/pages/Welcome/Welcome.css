@@ -73,7 +73,6 @@
 .dopaminebox {
   top: 180px;
   right: 300px;
-  
 }
 
 .welcometo span:nth-of-type(1)  {
@@ -270,6 +269,117 @@
   width: 60px;
 }
 
+@media only screen and (max-width: 600px) {
+  .welcome-page {
+    height: 100%;
+  }
+
+  .WP-welcome {
+    top: 50px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .box {
+    bottom: 80px;
+    left: 80px;
+  }
+  
+  .box img {
+    width: 90px;
+  }
+
+  .to {
+    font-size: 10px;
+    top: 165px;
+    left: 118px;
+  }
+  
+  .welcometo, .dopaminebox {
+    font-size: 20px;
+    width: 125px;
+    height: 100px;
+  }
+
+  .welcometo span, .dopaminebox span{
+    top: 10px;
+    left: 125px;
+    width: 70px;
+    height: 100px;
+    margin-left: -35px;
+    line-height: 170px; 
+    text-shadow: 0 2px #e0bda4;
+  }
+  
+  .welcometo span {
+    line-height: 70px;
+  }
+  
+  .dopaminebox {
+    top: 110px;
+    right: 125px;
+  }
+
+  .discription h2 {
+    padding: 20px;
+    padding-top: 30px;
+    font-size: 16px;
+  }
+  
+  .getStarted h2 {
+    padding: 15px;
+    padding-top: 25px;
+    font-size: 16px;
+  }
+  
+  .discription {
+    position: static;
+    margin-top: 450px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .getStarted {
+    position: static;
+    margin-top: 40px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .star img {
+    width: 40px;
+  }
+
+  .orange {
+    left: 227px;
+    top: -20px;
+  }
+
+  .yellow {
+    left: 55px;
+    top: 325px;
+    transform: scale(-1, 1);
+    /* transform: rotate(-20deg); */
+  }
+  
+  .yellow img:nth-child(2) {
+    width: 20px;
+  }
+
+  .stars1 {
+    left: 230px;
+    top: 570px;
+    animation: fadeInDownBig 3s;
+    rotate: -30deg;
+    visibility: visible;
+  }
+  
+  .stars1 img {
+    width: 80px;
+    rotate: -43deg;
+  }
+}
+
 @media screen and (max-width: 1150px) {
   .getStarted {
     top: 750px;
@@ -297,7 +407,8 @@
     left: 160px;
   }
 
-  .stars1 {
+  /* .stars1 {
     visibility: hidden;
-  }
+  } */
 }
+
