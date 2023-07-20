@@ -183,3 +183,44 @@
 .createGoal-modal {
     width: 170px;
 }
+
+@media only screen and (max-width: 600px) {
+    .form-container {
+        border-radius: 30px;
+        height: 650px;
+        margin-top: 50px;
+        width: 300px;
+    }
+
+    .form-container h1 {
+        font-size: 30px;
+        margin-top: 10px;
+    }
+
+    .form-container form {
+        font-size: 15px;
+        height: 73%;
+        padding-bottom: 45px;
+        width: 80%;
+    }
+
+    .form-container form div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-container form div:first-child {
+        font-size: 22px;
+    }
+
+    .form-container form div input {
+        border-radius: 10px;
+        height: 35px;
+        text-align: start;
+        width: 240px;
+    }
+
+    .form-container form div:first-child input {
+        height: 40px;
+    }
+}

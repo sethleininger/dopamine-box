@@ -132,7 +132,7 @@
     animation: tada 3s;
 }
 
-@media only screen and (max-width: 600) {
+@media only screen and (max-width: 600px) {
     .page_wrapper {
         width: 300px;
         border-radius: 30px;
