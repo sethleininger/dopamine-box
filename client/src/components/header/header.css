@@ -8,7 +8,7 @@ header {
 
 nav {
   display: flex;
-  flex-direction: Row;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -23,7 +23,7 @@ a {
   text-decoration: none;
   padding: 5px 10px;
   color: black;
-  margin-right: 10px;
+  margin-left: 10px;
   font-size: 1.2rem;
   position: relative;
 }
@@ -56,4 +56,45 @@ a:hover .pageName {
 
 .hidden{
   display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    height: 50px;
+  }
+
+  .header1 nav .left-nav {
+    display: flex;
+    width: 60%;
+  }
+
+  .header1 nav .right-nav {
+    width: 30%;
+    
+  }
+
+  a {
+    padding: 5px 0px;
+    width: 91px;
+    margin-right: 0px;
+    font-size: 10px;
+  }
+
+  a img {
+    width: 50px;
+    height: 50px;
+    top: -15px;
+  }
+
+  .header2 nav a img {
+    left: 20px;
+  }
+
+  a:hover img {
+    visibility: visible;
+  }
+
+  a:hover .pageName {
+    visibility: hidden;
+  }
 }

@@ -132,6 +132,67 @@
   height: 50px;
 }
 
+@media only screen and (max-width: 600px) {
+  .calendar-page {
+    padding-top: 300px;
+  }
+
+  .calendar-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 700px; 
+  }
+
+  .calendar-page .key-streak-info .key {
+    align-items: center;
+    border-radius: 30px;
+    height: 100px;
+    translate: 0px -92px;
+    width: 300px;
+  }
+
+  .calendar-page .key-streak-info .key ul {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    padding-inline-start: 0;
+  }
+
+  .calendar-page .key-streak-info .key li {
+    font-size: 12px;
+    display: flex;
+    width: 30px;
+  }
+
+  .calendar-page .key-streak-info .streak {
+    border-radius: 30px;
+    height: 200px;
+    justify-content: space-between;
+    translate: 0px -31px;
+    width: 300px;
+  }
+
+  .calendar-page .key-streak-info .streak h2 {
+    font-size: 20px;
+    font-weight: 400;
+    width: 90%;
+  }
+
+  .calendar-page .key-streak-info .streak .streak-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    translate: 0 -20px;
+  }
+
+  .calendar-page .key-streak-info .streak .streak-container .goal-streak h3 {
+    font-size: 17px;
+  }
+}
+
 @media screen and (max-width: 1300px) {
   .calendar-page {
     flex-direction: column-reverse;

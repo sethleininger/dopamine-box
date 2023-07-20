@@ -66,12 +66,12 @@ export default function CalendarPage() {
             <li>
               <FontAwesomeIcon icon={faBoxOpen} color="#FAEDCB" /> Today
             </li>
-            <li>
+            {/* <li>
               <FontAwesomeIcon icon={faBoxOpen} color="#FAA5AB" /> Incomplete
             </li>
             <li>
               <FontAwesomeIcon icon={faBoxOpen} color="#F7C6A3" /> Future
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -94,7 +94,7 @@ export default function CalendarPage() {
 
 
       {/* Calendar section */}
-      <div>
+      <div className='calendar-section'>
         <div className='calendar-title'> 
           <h2>{userData.username}'s Calendar</h2>
         </div>

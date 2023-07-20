@@ -85,9 +85,9 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
 
   if (signedIn) {
     return (
-      <header>
+      <header className="header1">
         <nav className={["navbar", `navbar--${direction}`].join(" ")}>
-          <div>
+          <div className="left-nav">
             <a
               href="#welcome"
               onClick={(event) => handleClickOne("Welcome", event)}
@@ -125,7 +125,7 @@ const Header = ({ nav, direction, handlePageChange, ...props }) => {
               <span className="pageName">Goal</span>
             </a>
           </div>
-          <div>
+          <div className="right-nav">
             <a
               href="#welcome"
               role="button"

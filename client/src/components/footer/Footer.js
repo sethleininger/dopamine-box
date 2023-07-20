@@ -13,7 +13,6 @@ const Footer = ({ ...props }) => (
             <img
               src={github}
               alt="github mark"
-              style={{ height: 25, width: 25 }}
             ></img>
           </a>
         </p>

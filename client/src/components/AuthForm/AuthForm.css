@@ -84,3 +84,25 @@ button:hover {
   background-color: var(--dutch-white);
   box-shadow: 2px 2px 5px var(--gray);
 }
+
+@media only screen and (max-width: 600px) {
+  .login {
+    width: 300px;
+    border-radius: 30px;
+    margin-top: 50px;
+  }
+
+  .login form {
+    width: 80%;
+    font-size: 16px;
+    padding-bottom: 20px;
+  }
+
+  .login form input {
+    height: 40px;
+  }
+
+  button {
+    height: 40px;
+  }
+}

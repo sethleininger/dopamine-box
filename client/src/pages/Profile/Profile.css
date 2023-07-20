@@ -131,3 +131,58 @@
 .modal-img {
     animation: tada 3s;
 }
+
+@media only screen and (max-width: 600px) {
+    .page_wrapper {
+        width: 300px;
+        border-radius: 30px;
+        height: 600px;
+    }
+
+    .content-wrapper h2 {
+        font-size: 30px;
+        translate: 0 -10px;
+    }
+
+    .content-wrapper .streak {
+        font-size: 18px;
+        translate: 0 -197px;
+        margin: 0 10px;
+    }
+
+    .content-wrapper .streak img {
+        height: 30px;
+        translate: 0 8px;
+    }
+
+    .content-wrapper .current-goal {
+        font-size: 20px;
+        font-weight: 400;
+        translate: 0 -362px;
+    }
+
+    .content-wrapper .task-box {
+        border-radius: 30px;
+        bottom: 76px;
+        height: 360px;
+        width: 95%;
+        align-self: center;
+    }
+
+    .content-wrapper .task-box .task input[type=checkbox] {
+        border-radius: 30%;
+        height: 30px;
+        margin: 0;
+        width: 30px;
+    }
+
+    .content-wrapper .task-box .button-group {
+        width: 250px;
+    }
+
+    .content-wrapper .task-box button {
+        height: 31px;
+        width: 63px;
+        font-size: 10px;
+    }
+}
