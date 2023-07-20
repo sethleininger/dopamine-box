@@ -63,17 +63,30 @@ a:hover .pageName {
     height: 50px;
   }
 
+  .header1 nav .left-nav {
+    display: flex;
+    width: 60%;
+  }
+
+  .header1 nav .right-nav {
+    width: 30%;
+    
+  }
+
   a {
     padding: 5px 0px;
     width: 91px;
     margin-right: 0px;
-    font-size: 12px;
+    font-size: 10px;
   }
 
   a img {
     width: 50px;
     height: 50px;
-    top: -10px;
+    top: -15px;
+  }
+
+  .header2 nav a img {
     left: 20px;
   }
 
